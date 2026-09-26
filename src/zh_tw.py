@@ -58,6 +58,9 @@ def main():
     if args.model == "laya-multi":
         from laya_adapter import LayaAdapter
         adapter = LayaAdapter(subfolder="multilingual")
+    elif args.model == "qwen":
+        from qwen_adapter import QwenAdapter
+        adapter = QwenAdapter()
     else:
         from laya_adapter import LayaAdapter
         adapter = LayaAdapter(subfolder=None)

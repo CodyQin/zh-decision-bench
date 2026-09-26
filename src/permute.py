@@ -33,8 +33,11 @@ def main():
     elif args.model == "laya-en":
         from laya_adapter import LayaAdapter
         adapter = LayaAdapter(subfolder=None)
+    elif args.model == "qwen":
+        from qwen_adapter import QwenAdapter
+        adapter = QwenAdapter()
     else:
-        raise SystemExit("目前支持 laya-multi / laya-en")
+        raise SystemExit("目前支持 laya-multi / laya-en / qwen")
 
     items = []
     for f in args.data:
@@ -82,7 +85,7 @@ def main():
         tv = np.mean([r["tv_mean"] for r in rs])
         print(f"{dom+'/'+q:44s} {len(rs):4d} {flip:7.1%} {rng_:8.3f} {tv:8.3f}")
 
-    out = Path("results/tables/permute.csv")
+    out = Path(f"results/tables/permute_{args.model}.csv")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(rows), encoding="utf-8")
     print(f"\n明细已写入 {out}")

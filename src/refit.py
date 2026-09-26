@@ -60,10 +60,11 @@ def main():
                     f"{eb:.4f},{ea:.4f},{nb:.4f},{na:.4f},{bb:.4f},{ba:.4f}")
         temps[f"{domain}/{q}"] = {"T": T, "n_fit": len(fit_recs), "n_test": len(test_recs)}
 
-    out = Path("results/tables/temperature_refit.csv")
+    model = recs[0]["model"] if recs else "unknown"
+    out = Path(f"results/tables/temperature_refit_{model}.csv")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(rows), encoding="utf-8")
-    (Path("data") / "temperatures.json").write_text(
+    (Path("data") / f"temperatures_{model}.json").write_text(
         json.dumps(temps, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n已写入 {out} 和 data/temperatures.json")
 

@@ -1,0 +1,22 @@
+{
+  "ecommerce_cs/escalate": {
+    "T": 5.528961477624004,
+    "n_fit": 11,
+    "n_test": 14
+  },
+  "ecommerce_cs/route": {
+    "T": 0.40656965974059917,
+    "n_fit": 11,
+    "n_test": 14
+  },
+  "ecommerce_cs/urgency": {
+    "T": 2.386910853524276,
+    "n_fit": 11,
+    "n_test": 14
+  },
+  "voice_assistant_routing/route": {
+    "T": 0.4127141732790496,
+    "n_fit": 81,
+    "n_test": 98
+  }
+}
