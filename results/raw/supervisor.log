@@ -1,0 +1,4 @@
+﻿09-26 01:53:36  supervisor started
+09-26 01:53:36  round 1: start grinder (lines=9)
+09-26 01:54:44  round 1: grinder exited (code -1), retry in 30s
+09-26 01:55:14  round 2: start grinder (lines=9)

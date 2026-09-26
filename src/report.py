@@ -19,15 +19,23 @@ from metrics import (accuracy, base_rate_gap, auroc_macro, brier, bootstrap_ci,
 
 
 def load_records(paths):
-    recs = []
+    """读入预测记录；容忍坏行（磨机并发写所致），按 (run,item,question) 去重取首条。"""
+    recs, seen = [], set()
     for p in paths:
         for line in open(p, encoding="utf-8"):
             line = line.strip()
             if not line:
                 continue
-            d = json.loads(line)
+            try:
+                d = json.loads(line)
+            except json.JSONDecodeError:
+                continue
             if "_meta" in d:
                 continue
+            key = (d.get("run_id"), d.get("item_id"), d.get("question"))
+            if key in seen:
+                continue
+            seen.add(key)
             recs.append(d)
     return recs
 

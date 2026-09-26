@@ -28,8 +28,22 @@ def split_key(item_id):
 
 def main():
     path = sys.argv[1]
-    recs = [json.loads(l) for l in open(path, encoding="utf-8") if l.strip()]
-    recs = [r for r in recs if "_meta" not in r]
+    recs, seen = [], set()
+    for l in open(path, encoding="utf-8"):
+        l = l.strip()
+        if not l:
+            continue
+        try:
+            d = json.loads(l)
+        except json.JSONDecodeError:
+            continue
+        if "_meta" in d:
+            continue
+        key = (d.get("item_id"), d.get("question"))
+        if key in seen:
+            continue
+        seen.add(key)
+        recs.append(d)
 
     groups = defaultdict(lambda: defaultdict(list))
     for r in recs:
