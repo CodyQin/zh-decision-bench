@@ -33,7 +33,8 @@ def convert_item(it):
         "questions": it["questions"],
         "expected": expected,
         "language": "zh-CN",
-        "tags": [it["domain"], src_tag, it.get("difficulty", "mid")],
+        "tags": [it["domain"], src_tag, it.get("difficulty", "mid"),
+                 "id:" + it["id"]],
     }
 
 
