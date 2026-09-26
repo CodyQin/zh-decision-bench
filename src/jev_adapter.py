@@ -1,0 +1,100 @@
+# -*- coding: utf-8 -*-
+"""
+Jev API 适配器。协议与 laya-serve 相同（POST /v1/systemone，Bearer 认证，
+body: {"state":..., "questions":{...}}，返回 answers 概率结构）。
+key 从项目根目录 .env 的 TYPESAFE_API_KEY 读取。
+"""
+import json
+import os
+import time
+from pathlib import Path
+
+import requests
+
+BASE_URL = os.environ.get("TYPESAFE_BASE_URL", "https://api.typesafe.ai")
+
+
+def load_api_key():
+    # 先看环境变量，再看 .env
+    key = os.environ.get("TYPESAFE_API_KEY")
+    if key:
+        return key
+    env_file = Path(__file__).parent.parent / ".env"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("TYPESAFE_API_KEY="):
+                v = line.split("=", 1)[1].strip()
+                if v and "在这里" not in v:
+                    return v
+    return None
+
+
+class JevAdapter:
+    def __init__(self, probe=False):
+        self.name = "jev"
+        self.key = load_api_key()
+        if not self.key:
+            raise SystemExit("未找到 TYPESAFE_API_KEY（环境变量或 .env）")
+        self.session = requests.Session()
+        self.session.headers.update({
+            "Authorization": f"Bearer {self.key}",
+            "Content-Type": "application/json",
+        })
+        self.probe = probe  # True 时打印首条原始返回，用于核对格式
+
+    def _post(self, payload, retries=4):
+        for i in range(retries):
+            try:
+                r = self.session.post(f"{BASE_URL}/v1/systemone", json=payload, timeout=60)
+                if r.status_code == 200:
+                    return r.json()
+                if r.status_code in (429, 500, 502, 503):
+                    wait = 2 ** i
+                    print(f"  [jev] HTTP {r.status_code}，{wait}s 后重试")
+                    time.sleep(wait)
+                    continue
+                raise RuntimeError(f"Jev HTTP {r.status_code}: {r.text[:300]}")
+            except requests.RequestException as e:
+                if i == retries - 1:
+                    raise
+                print(f"  [jev] 网络错误 {e}，重试")
+                time.sleep(2 ** i)
+        raise RuntimeError("Jev 重试次数用尽")
+
+    def predict_item(self, item):
+        payload = {"state": item["state"], "questions": item["questions"]}
+        t0 = time.perf_counter()
+        result = self._post(payload)
+        latency_ms = (time.perf_counter() - t0) * 1000
+        if self.probe:
+            print(json.dumps(result, ensure_ascii=False, indent=2)[:2000])
+            self.probe = False
+        out = {}
+        for qname, qspec in item["questions"].items():
+            ans = result.get("answers", {}).get(qname, {})
+            qtype = qspec["type"]
+            if qtype == "choice":
+                labels = list(qspec["criteria"].keys())
+                p = ans.get("probabilities", {})
+                probs = [float(p.get(l, 0.0)) for l in labels]
+            elif qtype == "score":
+                labels = list(qspec["criteria"])
+                p = ans.get("probabilities", {})
+                probs = [float(p.get(str(i), p.get(l, 0.0)))
+                         for i, l in enumerate(labels)]
+            elif qtype == "noul":
+                labels = ["true", "false"]
+                pt = float(ans.get("noul", ans.get("probability", 0.5)))
+                probs = [pt, 1.0 - pt]
+            else:
+                raise ValueError(qtype)
+            s = sum(probs)
+            if s > 0:
+                probs = [x / s for x in probs]
+            out[qname] = {"labels": labels, "probs": probs,
+                          "confidence": ans.get("confidence"),
+                          "answer_confidence": ans.get("answer_confidence")}
+        out["_latency_ms"] = latency_ms
+        out["_usage"] = result.get("usage", {})
+        return out

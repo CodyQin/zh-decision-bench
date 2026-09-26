@@ -1,0 +1,14 @@
+# GPU 版 torch 需用单独命令安装（见 README）：
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# CPU 兜底：pip install torch
+torch
+laya
+transformers
+huggingface_hub
+datasets
+scikit-learn
+numpy
+pandas
+matplotlib
+opencc-python-reimplemented
+python-dotenv
