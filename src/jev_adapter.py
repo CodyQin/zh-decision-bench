@@ -57,30 +57,43 @@ class JevAdapter:
         self.session.headers.update(headers)
         self.probe = probe  # True 时打印首条原始返回，用于核对格式
 
-    def _post(self, payload, retries=4):
+    def _post(self, payload, retries=30):
         if self.via == "openrouter":
             payload = {"model": OPENROUTER_MODEL, **payload}
         elif self.via == "vercel":
             # Vercel /v1/evaluate 的请求体与 systemone 同构，仅多 model 字段；
             # 返回 answers.{name}.probabilities / probability(boolean)，与现有解析兼容
             payload = {"model": VERCEL_MODEL, **payload}
+        # 上游(TypeSafe)过载时429：超长耐心退避，逐步升级
+        if self.via == "vercel":
+            elapsed = time.time() - getattr(self, "_last_call", 0)
+            if elapsed < 1.2:
+                time.sleep(1.2 - elapsed)
+        consec429 = 0
         for i in range(retries):
             try:
                 r = self.session.post(self.base, json=payload, timeout=60)
+                self._last_call = time.time()
                 if r.status_code == 200:
                     return r.json()
-                if r.status_code in (429, 500, 502, 503):
-                    wait = 2 ** i
-                    print(f"  [jev] HTTP {r.status_code}，{wait}s 后重试")
+                if r.status_code == 429:
+                    consec429 += 1
+                    wait = min(90, max(4, 8 * consec429))  # 8s起步，连续429逐步加到90s
+                    print(f"  [jev] 429 第{consec429}次，等 {wait}s", flush=True)
+                    time.sleep(wait)
+                    continue
+                if r.status_code in (500, 502, 503):
+                    wait = min(90, 2 ** i)
+                    print(f"  [jev] HTTP {r.status_code}，{wait}s 后重试", flush=True)
                     time.sleep(wait)
                     continue
                 raise RuntimeError(f"Jev HTTP {r.status_code}: {r.text[:300]}")
             except requests.RequestException as e:
                 if i == retries - 1:
                     raise
-                print(f"  [jev] 网络错误 {e}，重试")
-                time.sleep(2 ** i)
-        raise RuntimeError("Jev 重试次数用尽")
+                print(f"  [jev] 网络错误 {e}，重试", flush=True)
+                time.sleep(min(30, 2 ** i))
+        raise RuntimeError("Jev 重试次数用尽（30次）")
 
     def predict_item(self, item):
         payload = {"state": item["state"], "questions": item["questions"]}

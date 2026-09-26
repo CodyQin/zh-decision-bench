@@ -1,0 +1,1 @@
+{"_meta": {"run_id": "jev_20260925_234949", "model": "jev", "model_desc": "TypeSafe Jev API (jev-1.13.0)", "torch": "2.11.0+cu128", "cuda": true, "laya": "0.3.20", "data": ["data/massive_items.jsonl"], "started": "2026-09-25T23:49:50.487688", "limit": 10}}

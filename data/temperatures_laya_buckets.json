@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "convention": "laya.common.temp_bucket (question_type, option-count band)",
+    "clamp": [
+      0.5,
+      5.0
+    ],
+    "run": "laya-multi_20260925_210539.jsonl",
+    "model": "laya-multilingual-322M",
+    "data": "zh-decision-bench v0.1"
+  },
+  "choice:3-5": {
+    "T": 2.612,
+    "T_raw": 2.612,
+    "clamped": false,
+    "n_fit": 11,
+    "n_test": 14,
+    "ece_before": 0.3292,
+    "ece_after": 0.352,
+    "nll_before": 1.772,
+    "nll_after": 1.0372
+  },
+  "choice:6-10": {
+    "T": 1.522,
+    "T_raw": 1.522,
+    "clamped": false,
+    "n_fit": 81,
+    "n_test": 98,
+    "ece_before": 0.0621,
+    "ece_after": 0.0927,
+    "nll_before": 0.4139,
+    "nll_after": 0.3792
+  },
+  "noul:2": {
+    "T": 5.0,
+    "T_raw": 10.227,
+    "clamped": true,
+    "n_fit": 27,
+    "n_test": 28,
+    "ece_before": 0.1795,
+    "ece_after": 0.0983,
+    "nll_before": 0.7919,
+    "nll_after": 0.551
+  },
+  "score:3-5": {
+    "T": 1.33,
+    "T_raw": 1.33,
+    "clamped": false,
+    "n_fit": 11,
+    "n_test": 14,
+    "ece_before": 0.1183,
+    "ece_after": 0.1263,
+    "nll_before": 0.8391,
+    "nll_after": 0.8699
+  }
+}

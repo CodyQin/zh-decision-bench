@@ -1,0 +1,113 @@
+{"_meta": {"run_id": "jev_e1", "model": "jev", "model_desc": "TypeSafe Jev API (jev-1.13.0)", "torch": "2.11.0+cu128", "cuda": true, "laya": "0.3.20", "data": ["data/massive_items.jsonl", "data/synthetic_items.jsonl"], "started": "2026-09-26T00:23:14.694976", "limit": 0}}
+{
+  "answers": {
+    "route": {
+      "type": "choice",
+      "choice": "闹钟计时",
+      "probabilities": {
+        "音量控制": 0,
+        "音乐点播": 0,
+        "日历安排": 0.02,
+        "天气查询": 0,
+        "交通出行": 0,
+        "闹钟计时": 0.98
+      },
+      "confidence": 0.98
+    }
+  },
+  "model": "typesafe-ai/jev",
+  "providerMetadata": {
+    "typesafe": {
+      "confidence": {
+        "route": 0.98
+      }
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "typesafe-ai/jev",
+        "resolvedProvider": "digitalocean",
+        "fallbacksAvailable": [
+          "typesafe-ai"
+        ],
+        "planningReasoning": "System credentials planned for: digitalocean, typesafe-ai. Total execution order: typesafe-ai(system) → digitalocean(system)",
+        "canonicalSlug": "typesafe-ai/jev",
+        "finalProvider": "typesafe-ai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "typesafe-ai/jev",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "typesafe-ai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1790407395046,
+                "endTime": 1790407395175,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.000019236",
+      "marketCost": "0.000019236",
+      "surchargeCost": "0",
+      "gatewayCost": "0.000019236",
+      "inferenceCost": "0.000019236",
+      "inputInferenceCost": "0.000019236",
+      "outputInferenceCost": "0",
+      "generationId": "gen_01M3E9HHN8FHSN421SGC1G6DAV"
+    }
+  },
+  "usage": {
+    "inputTokens": 458,
+    "outputTokens": 82
+  }
+}
+  [jev] 429 第1次，等 8s
+  [jev] 429 第2次，等 16s
+  [jev] 429 第3次，等 24s
+  [jev] 429 第4次，等 32s
+  [jev] 429 第5次，等 40s
+  [jev] 429 第6次，等 48s
+  [jev] 429 第7次，等 56s
+  [jev] 429 第8次，等 64s
+  [jev] 429 第9次，等 72s
+  [jev] 429 第1次，等 8s
+  [jev] 429 第2次，等 16s
+  [jev] 429 第3次，等 24s
+  [jev] 429 第4次，等 32s
+  [jev] 429 第5次，等 40s
+  [jev] 429 第6次，等 48s
+  [jev] 429 第7次，等 56s
+  [jev] 429 第8次，等 64s
+  [jev] 429 第9次，等 72s
+  [jev] 429 第1次，等 8s
+  [jev] 429 第2次，等 16s
+  [jev] 429 第3次，等 24s
+  [jev] 429 第4次，等 32s
+  [jev] 429 第5次，等 40s
+  [jev] 429 第6次，等 48s
+  [jev] 429 第7次，等 56s
+  [jev] 429 第8次，等 64s
+  [jev] 429 第9次，等 72s
+  [jev] 429 第1次，等 8s
+  [jev] 429 第2次，等 16s
+  [jev] 429 第3次，等 24s
+  [jev] 429 第4次，等 32s
+  [jev] 429 第5次，等 40s
+  [jev] 429 第6次，等 48s
+  [jev] 429 第7次，等 56s
+  [jev] 429 第8次，等 64s
+  [jev] 429 第9次，等 72s
+  [jev] 429 第1次，等 8s
+  [jev] 429 第2次，等 16s
+  [jev] 429 第3次，等 24s
+  [jev] 429 第4次，等 32s
+  [jev] 429 第5次，等 40s
+  [jev] 429 第6次，等 48s
+  [jev] 429 第7次，等 56s
+  [jev] 429 第8次，等 64s

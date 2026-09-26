@@ -30,11 +30,23 @@ def main():
                     help="laya-multi / laya-en / qwen / jev")
     ap.add_argument("--data", nargs="+", required=True)
     ap.add_argument("--limit", type=int, default=0, help="只跑前N条（调试用）")
+    ap.add_argument("--out", default=None, help="指定run_id（跨夜续跑用固定名）")
+    ap.add_argument("--resume", action="store_true", help="跳过输出文件里已有的题")
     args = ap.parse_args()
 
-    run_id = f"{args.model}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    run_id = args.out or f"{args.model}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     out_path = Path("results/raw") / f"{run_id}.jsonl"
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # 断点续跑：读取已完成的 item_id
+    done_ids = set()
+    append_mode = args.resume and out_path.exists()
+    if append_mode:
+        for line in open(out_path, encoding="utf-8"):
+            d = json.loads(line)
+            if "_meta" not in d:
+                done_ids.add(d["item_id"])
+        print(f"续跑模式：已有 {len(done_ids)} 条完成记录，将跳过")
 
     # 加载适配器
     if args.model.startswith("laya"):
@@ -64,14 +76,20 @@ def main():
 
     n_items = n_q = 0
     t_start = time.time()
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(json.dumps(meta, ensure_ascii=False) + "\n")
+    with open(out_path, "a" if append_mode else "w", encoding="utf-8") as f:
+        if not append_mode:
+            f.write(json.dumps(meta, ensure_ascii=False) + "\n")
         for data_file in args.data:
             items = [json.loads(l) for l in open(data_file, encoding="utf-8") if l.strip()]
             if args.limit:
                 items = items[:args.limit]
+            items = [it for it in items if it["id"] not in done_ids]
             for item in items:
-                preds = adapter.predict_item(item)
+                try:
+                    preds = adapter.predict_item(item)
+                except Exception as e:
+                    print(f"!! {item['id']} 失败跳过（续跑时会重试）：{e}", flush=True)
+                    continue
                 for qname, qspec in item["questions"].items():
                     p = preds[qname]
                     gold_val = item["gold"][qname]
@@ -88,6 +106,7 @@ def main():
                            "answer_confidence": p.get("answer_confidence"),
                            "latency_ms": round(preds["_latency_ms"], 1)}
                     f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                    f.flush()  # 立即落盘，磨机场景下进度不丢
                     n_q += 1
                 n_items += 1
                 if n_items % 25 == 0:
