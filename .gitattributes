@@ -1,0 +1,5 @@
+* text=auto
+*.png binary
+*.jsonl text
+*.md text
+*.py text

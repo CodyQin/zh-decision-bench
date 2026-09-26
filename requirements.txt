@@ -4,11 +4,9 @@
 torch
 laya
 transformers
-huggingface_hub
-datasets
+accelerate
 scikit-learn
 numpy
 pandas
 matplotlib
-opencc-python-reimplemented
-python-dotenv
+requests
