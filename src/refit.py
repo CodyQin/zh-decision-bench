@@ -66,7 +66,7 @@ def main():
     out.write_text("\n".join(rows), encoding="utf-8")
     (Path("data") / f"temperatures_{model}.json").write_text(
         json.dumps(temps, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\n已写入 {out} 和 data/temperatures.json")
+    print(f"\n已写入 {out} 和 data/temperatures_{model}.json")
 
 
 if __name__ == "__main__":

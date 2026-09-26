@@ -47,25 +47,26 @@
    - 问题：route、urgency、escalate　|　gold：route=账户安全；urgency=紧急；escalate=True　|　难度：hard
    - 备注：表面是诈骗电话，实质是信息泄露指控，归账户安全
 16. **[syn_cs_0016]** 会员自动续费怎么关闭
-   - 问题：route、urgency、escalate　|　gold：route=账户安全；urgency=不紧急；escalate=False　|　难度：mid
-   - 备注：续费设置归账户类，纯知识问答
+   - 问题：route、urgency、escalate　|　gold：route=支付问题；urgency=不紧急；escalate=False　|　难度：mid
+   - 备注：续费扣款管理归支付（人工审定 2026-09-25）
 17. **[syn_cs_0017]** 昨天下的单今天降价了50块，能补差价吗
    - 问题：route、urgency、escalate　|　gold：route=退换售后；urgency=一般；escalate=False　|　难度：mid
    - 备注：价保在售后类
 18. **[syn_cs_0018]** 包裹显示运输破损被退回发件人了，你们怎么处理的，我要个说法
-   - 问题：route、urgency、escalate　|　gold：route=物流配送；urgency=紧急；escalate=True　|　难度：mid
-   - 备注：运输事故，需人工跟进补发
+   - 问题：route、urgency、escalate　|　gold：route=物流配送；urgency=一般；escalate=True　|　难度：mid
+   - 备注：无安全风险/即时止损需求，降为一般（人工审定）
 19. **[syn_cs_0019]** 开发票可以吗，电子发票发我邮箱
    - 问题：route、urgency、escalate　|　gold：route=支付问题；urgency=不紧急；escalate=False　|　难度：easy
    - 备注：发票归支付/订单类
 20. **[syn_cs_0020]** 付款的时候一直转圈，卡了十分钟了，不敢再点怕重复扣款
-   - 问题：route、urgency、escalate　|　gold：route=支付问题；urgency=紧急；escalate=True　|　难度：mid
-   - 备注：支付卡单需实时人工确认状态
+   - 问题：route、urgency、escalate　|　gold：route=支付问题；urgency=紧急；escalate=False　|　难度：mid
+   - 备注：系统可自动查支付状态，异常才升级（人工审定）
 21. **[syn_cs_0021]** 退货的快递你们签收一个星期了退款还没处理
    - 问题：route、urgency、escalate　|　gold：route=退换售后；urgency=一般；escalate=True　|　难度：hard
    - 备注：跨售后+支付（退款），主因是售后超时，需人工催办
 22. **[syn_cs_0022]** 我在你们店买了三单，想合并成一个包裹发货
-   - 问题：route、urgency、escalate　|　gold：route=物流配送；urgency=不紧急；escalate=False　|　难度：easy
+   - 问题：route、urgency、escalate　|　gold：route=物流配送；urgency=一般；escalate=False　|　难度：easy
+   - 备注：需赶在发货前处理，具时效性（人工审定）
 23. **[syn_cs_0023]** 下单半小时了想取消订单，还没发货呢
    - 问题：route、urgency、escalate　|　gold：route=退换售后；urgency=一般；escalate=False　|　难度：mid
    - 备注：取消订单走售后流程，需赶在发货前
@@ -82,7 +83,7 @@
    - 备注：仿官方钓鱼链接
 27. **[syn_risk_0002]** 姐妹们我最近在用的这个面膜真的绝了，需要的加我微信xxx低价出
    - 问题：scam、escalate　|　gold：scam=True；escalate=False　|　难度：easy
-   - 备注：站外引流广告，模式固定可自动处置
+   - 备注：站外低价引流：按'诈骗或违规引流'定义判 True（人工审定）
 28. **[syn_risk_0003]** 小区群里通知：明天上午停电检修，请大家提前准备
    - 问题：scam、escalate　|　gold：scam=False；escalate=False　|　难度：easy
 29. **[syn_risk_0004]** 恭喜您被抽中为幸运用户，领取888元红包，24小时内有效，加客服QQ领取
@@ -101,10 +102,10 @@
    - 备注：反诈提醒帖，谈论诈骗但本身不是诈骗——关键词陷阱
 34. **[syn_risk_0009]** 低价代充话费九折，秒到账，稳定渠道长期接单
    - 问题：scam、escalate　|　gold：scam=True；escalate=False　|　难度：mid
-   - 备注：灰产代充，模式固定可自动处置
+   - 备注：灰产代充：违规引流而非确证诈骗，审定时存疑后按定义保留 True
 35. **[syn_risk_0010]** 公司内部渠道茅台，价格美丽，数量不多先到先得
    - 问题：scam、escalate　|　gold：scam=True；escalate=True　|　难度：mid
-   - 备注：假冒内购，涉品牌侵权需人工
+   - 备注：假冒内购：违规引流而非确证诈骗，同上
 36. **[syn_risk_0011]** 请问有人捡到一只橘猫吗？走丢两天了，酬谢
    - 问题：scam、escalate　|　gold：scam=False；escalate=False　|　难度：easy
 37. **[syn_risk_0012]** 扫码进群每天签到就领现金红包，我已经提现50了，亲测有效
