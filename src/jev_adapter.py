@@ -14,6 +14,8 @@ import requests
 BASE_URL = os.environ.get("TYPESAFE_BASE_URL", "https://api.typesafe.ai")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/systemone"
 OPENROUTER_MODEL = "typesafe/jev-1.13"
+VERCEL_URL = "https://ai-gateway.vercel.sh/v1/evaluate"
+VERCEL_MODEL = "typesafe-ai/jev"
 
 
 def _read_env(name):
@@ -35,12 +37,17 @@ class JevAdapter:
         self.base = BASE_URL
         self.via = "typesafe-direct"
         if not self.key:
+            # Vercel AI Gateway：每月$5免费额度、无需绑卡（Hobby计划）
+            self.key = _read_env("AI_GATEWAY_API_KEY")
+            self.base = VERCEL_URL
+            self.via = "vercel"
+        if not self.key:
             self.key = _read_env("OPENROUTER_API_KEY")
             self.base = OPENROUTER_URL
             self.via = "openrouter"
         if not self.key:
-            raise SystemExit("未找到 key：在 .env 里配 TYPESAFE_API_KEY（直连）"
-                             "或 OPENROUTER_API_KEY（OpenRouter 网关）")
+            raise SystemExit("未找到 key：在 .env 里配 AI_GATEWAY_API_KEY（Vercel，免费）"
+                             "、TYPESAFE_API_KEY（直连）或 OPENROUTER_API_KEY")
         self.session = requests.Session()
         headers = {"Authorization": f"Bearer {self.key}",
                    "Content-Type": "application/json"}
@@ -53,6 +60,10 @@ class JevAdapter:
     def _post(self, payload, retries=4):
         if self.via == "openrouter":
             payload = {"model": OPENROUTER_MODEL, **payload}
+        elif self.via == "vercel":
+            # Vercel /v1/evaluate 的请求体与 systemone 同构，仅多 model 字段；
+            # 返回 answers.{name}.probabilities / probability(boolean)，与现有解析兼容
+            payload = {"model": VERCEL_MODEL, **payload}
         for i in range(retries):
             try:
                 r = self.session.post(self.base, json=payload, timeout=60)
