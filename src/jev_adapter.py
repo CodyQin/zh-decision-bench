@@ -12,41 +12,50 @@ from pathlib import Path
 import requests
 
 BASE_URL = os.environ.get("TYPESAFE_BASE_URL", "https://api.typesafe.ai")
+OPENROUTER_URL = "https://openrouter.ai/api/v1/systemone"
+OPENROUTER_MODEL = "typesafe/jev-1.13"
 
 
-def load_api_key():
-    # 先看环境变量，再看 .env
-    key = os.environ.get("TYPESAFE_API_KEY")
-    if key:
-        return key
+def _read_env(name):
     env_file = Path(__file__).parent.parent / ".env"
     if env_file.exists():
         for line in env_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
-            if line.startswith("TYPESAFE_API_KEY="):
+            if line.startswith(name + "="):
                 v = line.split("=", 1)[1].strip()
-                if v and "在这里" not in v:
+                if v and "在这里" not in v and "粘贴" not in v:
                     return v
-    return None
+    return os.environ.get(name)
 
 
 class JevAdapter:
     def __init__(self, probe=False):
         self.name = "jev"
-        self.key = load_api_key()
+        self.key = _read_env("TYPESAFE_API_KEY")
+        self.base = BASE_URL
+        self.via = "typesafe-direct"
         if not self.key:
-            raise SystemExit("未找到 TYPESAFE_API_KEY（环境变量或 .env）")
+            self.key = _read_env("OPENROUTER_API_KEY")
+            self.base = OPENROUTER_URL
+            self.via = "openrouter"
+        if not self.key:
+            raise SystemExit("未找到 key：在 .env 里配 TYPESAFE_API_KEY（直连）"
+                             "或 OPENROUTER_API_KEY（OpenRouter 网关）")
         self.session = requests.Session()
-        self.session.headers.update({
-            "Authorization": f"Bearer {self.key}",
-            "Content-Type": "application/json",
-        })
+        headers = {"Authorization": f"Bearer {self.key}",
+                   "Content-Type": "application/json"}
+        if self.via == "openrouter":
+            headers["HTTP-Referer"] = "https://github.com/CodyQin/zh-decision-bench"
+            headers["X-Title"] = "zh-decision-bench"
+        self.session.headers.update(headers)
         self.probe = probe  # True 时打印首条原始返回，用于核对格式
 
     def _post(self, payload, retries=4):
+        if self.via == "openrouter":
+            payload = {"model": OPENROUTER_MODEL, **payload}
         for i in range(retries):
             try:
-                r = self.session.post(f"{BASE_URL}/v1/systemone", json=payload, timeout=60)
+                r = self.session.post(self.base, json=payload, timeout=60)
                 if r.status_code == 200:
                     return r.json()
                 if r.status_code in (429, 500, 502, 503):
