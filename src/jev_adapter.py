@@ -61,9 +61,10 @@ class JevAdapter:
         if self.via == "openrouter":
             payload = {"model": OPENROUTER_MODEL, **payload}
         elif self.via == "vercel":
-            # Vercel /v1/evaluate 的请求体与 systemone 同构，仅多 model 字段；
-            # 返回 answers.{name}.probabilities / probability(boolean)，与现有解析兼容
-            payload = {"model": VERCEL_MODEL, **payload}
+            # Vercel /v1/evaluate 与 systemone 同构，差异：是否题叫 boolean（非 noul）
+            qs = {name: ({**q, "type": "boolean"} if q.get("type") == "noul" else q)
+                  for name, q in payload.get("questions", {}).items()}
+            payload = {"model": VERCEL_MODEL, **payload, "questions": qs}
         # 上游(TypeSafe)过载时429：超长耐心退避，逐步升级
         if self.via == "vercel":
             elapsed = time.time() - getattr(self, "_last_call", 0)

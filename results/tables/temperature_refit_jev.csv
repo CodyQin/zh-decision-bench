@@ -1,0 +1,2 @@
+domain,question,n_fit,n_test,T,ece_before,ece_after,nll_before,nll_after,brier_before,brier_after
+voice_assistant_routing,route,81,98,2.573,0.0293,0.0169,0.1029,0.0838,0.0592,0.0494

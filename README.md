@@ -8,7 +8,7 @@ Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — no
 
 ## Key findings (v0.1, post human review)
 
-1. **The LLM-vs-decision-model contest splits by task type.** Qwen3.5-2B (logit probing) leads decisively on choice/ordinal tasks (voice routing 94.4% vs 88.3%; customer-service routing 92.0% vs 64.0%; urgency 64% vs 56%) and is far more robust (option-order flip rate 0% vs 28%; traditional-Chinese flip 2.2% vs 12.8%) — but collapses on binary judgments (escalation accuracy 40%, ECE 0.49–0.57, refit temperature 20.1), where the dedicated decision model holds the relative edge. **The value proposition of the decision-model route needs to be re-scoped by task, not accepted or rejected wholesale.**
+1. **The LLM-vs-decision-model contest splits by task type.** Qwen3.5-2B (logit probing) leads decisively on choice/ordinal tasks (voice routing 94.4% vs 88.3%; customer-service routing 92.0% vs 64.0%; urgency 64% vs 56%) and is far more robust (option-order flip rate 0% vs 28%; traditional-Chinese flip 2.2% vs 12.8%) — but collapses on binary judgments (escalation accuracy 40%, ECE 0.49–0.57, refit temperature 20.1), where the dedicated decision model holds the relative edge. On the one task we could measure Jev on, the closed flagship ties Qwen's accuracy on Chinese voice routing (0.944) with strong calibration (ECE 0.043) — the category's promise holds at the flagship end; it is the open small decision models that trail. **The value proposition of the decision-model route needs to be re-scoped by task and by tier, not accepted or rejected wholesale.**
 2. **"100+ languages" is a layered claim in Chinese.** Everyday voice commands: Laya multilingual 322M reaches 88.3% / ECE 0.061 (close to its own post-refit English figure of 0.081). Business scenarios: 52–67% with ECE degrading to 0.23–0.31.
 3. **Over-confidence is systematic — and scenario-dependent.** Refit temperatures for Laya multilingual are uniformly >1 (1.33–5.70); the English checkpoint is bidirectional (0.41–5.53); Qwen is split (0.81–20.09). Over/under-confidence varies by model×scenario combination, not by model alone.
 4. **Option-order sensitivity.** 28% of customer-service items flip their answer when options are merely reordered (voice: 10.6%); Qwen flips 0% on the same items. Fix the order or aggregate before production use.
@@ -34,7 +34,7 @@ Covers all three question primitives: `choice`, `score` (ordinal), `noul` (binar
 | Laya multilingual 322M | local, Apache 2.0 | ✅ evaluated |
 | Laya english 421M | local, Apache 2.0 | ✅ evaluated (control) |
 | Qwen3.5-2B | local bf16, logit-probe baseline | ✅ evaluated |
-| Jev API | closed | ⏸ not evaluated: TypeSafe direct signups paused since 2026-09-22; adapter ready (`src/jev_adapter.py`) for when it reopens |
+| Jev (jev-1.13) | closed API, via Vercel AI Gateway | 🔶 partially evaluated: voice routing n=179 — acc 0.944 / ECE 0.043. Business scenarios blocked (gateway free tier excludes the model; TypeSafe direct signups paused); to be completed when access reopens |
 
 Fairness note: Qwen is 2B vs Laya's 322M/421M — ~6× parameters, ~3× per-question latency. The comparison is between *routes* (generative LLM vs dedicated decision model), not matched budgets.
 
@@ -44,16 +44,16 @@ Metric suite follows [Just Ask Jev (arXiv:2609.29429)](https://arxiv.org/abs/260
 
 ## Results at a glance (accuracy / ECE)
 
-| Scenario · question | Laya multi 322M | Laya en 421M | Qwen3.5-2B |
-|---|---|---|---|
-| Voice routing (n=179) | 0.883 / 0.061 | 0.754 / 0.281 | **0.944 / 0.032** |
-| CS routing (n=25) | 0.640 / 0.293 | 0.520 / 0.184 | **0.920 / 0.058** |
-| CS urgency (n=25) | 0.560 / 0.091 | 0.520 / 0.207 | **0.640 / 0.243** |
-| Scam/illicit promotion (n=15) | **0.667** / 0.311 | **0.667** / 0.321 | 0.533 / 0.421 |
-| Escalate (both scenarios, n=40) | **0.550** / 0.230 | 0.575 / 0.269 | 0.400 / 0.486 |
-| Option-order flip rate (CS / voice) | 28.0% / 10.6% | — | **0.0% / 7.3%** |
-| zh-TW flip rate (voice) | 12.8% | — | **2.2%** |
-| Refit temperature range | 1.33–5.70 | 0.41–5.53 | 0.81–20.09 |
+| Scenario · question | Laya multi 322M | Laya en 421M | Qwen3.5-2B | Jev (voice only, n=179) |
+|---|---|---|---|---|
+| Voice routing (n=179) | 0.883 / 0.061 | 0.754 / 0.281 | **0.944** / 0.032 | **0.944** / 0.043 |
+| CS routing (n=25) | 0.640 / 0.293 | 0.520 / 0.184 | **0.920 / 0.058** | — |
+| CS urgency (n=25) | 0.560 / 0.091 | 0.520 / 0.207 | **0.640 / 0.243** | — |
+| Scam/illicit promotion (n=15) | **0.667** / 0.311 | **0.667** / 0.321 | 0.533 / 0.421 | — |
+| Escalate (both scenarios, n=40) | **0.550** / 0.230 | 0.575 / 0.269 | 0.400 / 0.486 | — |
+| Option-order flip rate (CS / voice) | 28.0% / 10.6% | — | **0.0% / 7.3%** | — |
+| zh-TW flip rate (voice) | 12.8% | — | **2.2%** | — |
+| Refit temperature (voice routing) | 1.52 | 0.41 | 0.90 | 2.57 |
 
 Full tables with CIs, Brier/NLL/AUROC and selective prediction: [reports/metrics.md](reports/metrics.md)
 
@@ -83,7 +83,7 @@ Reproducibility: the first line of every run file is a `_meta` record (model pat
 - v0.1 business-scenario groups have n=15–25 — wide CIs; v0.2 will expand
 - MASSIVE Chinese is professionally localized (not natively collected); colloquial coverage is compensated by the synthetic layer
 - Single human adjudicator with LLM-assisted drafting; the [review log](data/review_log.md) is public
-- Jev not measured (signups paused); adapter ready for when it reopens
+- Jev measured only on voice routing (n=179) via a gateway free-tier quota; business-scenario questions blocked (free tier excludes the model; TypeSafe direct signups paused) — row to be completed when access reopens
 - ECE is bin-sensitive at small n; headline conclusions rest on NLL and cross-group consistency
 
 ## License

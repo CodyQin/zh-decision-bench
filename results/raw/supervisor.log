@@ -2,3 +2,857 @@
 09-26 01:53:36  round 1: start grinder (lines=9)
 09-26 01:54:44  round 1: grinder exited (code -1), retry in 30s
 09-26 01:55:14  round 2: start grinder (lines=9)
+09-26 19:28:07  round 2: grinder exited (code 0), retry in 30s
+09-26 19:28:37  round 3: start grinder (lines=180)
+09-26 19:29:29  round 3: grinder exited (code 0), retry in 30s
+09-26 19:29:59  round 4: start grinder (lines=180)
+09-26 19:30:52  round 4: grinder exited (code 0), retry in 30s
+09-26 19:31:22  round 5: start grinder (lines=180)
+09-26 19:32:14  round 5: grinder exited (code 0), retry in 30s
+09-26 19:32:44  round 6: start grinder (lines=180)
+09-26 19:33:35  round 6: grinder exited (code 0), retry in 30s
+09-26 19:34:06  round 7: start grinder (lines=180)
+09-26 19:34:57  round 7: grinder exited (code 0), retry in 30s
+09-26 19:35:27  round 8: start grinder (lines=180)
+09-26 19:36:27  round 8: grinder exited (code 0), retry in 30s
+09-26 19:36:57  round 9: start grinder (lines=180)
+09-26 19:37:49  round 9: grinder exited (code 0), retry in 30s
+09-26 19:38:19  round 10: start grinder (lines=180)
+09-26 19:39:10  round 10: grinder exited (code 0), retry in 30s
+09-26 19:39:40  round 11: start grinder (lines=180)
+09-26 19:40:33  round 11: grinder exited (code 0), retry in 30s
+09-26 19:41:03  round 12: start grinder (lines=180)
+09-26 19:41:54  round 12: grinder exited (code 0), retry in 30s
+09-26 19:42:24  round 13: start grinder (lines=180)
+09-26 19:43:16  round 13: grinder exited (code 0), retry in 30s
+09-26 19:43:46  round 14: start grinder (lines=180)
+09-26 19:44:38  round 14: grinder exited (code 0), retry in 30s
+09-26 19:45:08  round 15: start grinder (lines=180)
+09-26 19:46:00  round 15: grinder exited (code 0), retry in 30s
+09-26 19:46:30  round 16: start grinder (lines=180)
+09-26 19:47:22  round 16: grinder exited (code 0), retry in 30s
+09-26 19:47:52  round 17: start grinder (lines=180)
+09-26 19:48:44  round 17: grinder exited (code 0), retry in 30s
+09-26 19:49:14  round 18: start grinder (lines=180)
+09-26 19:50:06  round 18: grinder exited (code 0), retry in 30s
+09-26 19:50:36  round 19: start grinder (lines=180)
+09-26 19:51:28  round 19: grinder exited (code 0), retry in 30s
+09-26 19:51:58  round 20: start grinder (lines=180)
+09-26 19:52:50  round 20: grinder exited (code 0), retry in 30s
+09-26 19:53:20  round 21: start grinder (lines=180)
+09-26 19:54:12  round 21: grinder exited (code 0), retry in 30s
+09-26 19:54:42  round 22: start grinder (lines=180)
+09-26 19:55:34  round 22: grinder exited (code 0), retry in 30s
+09-26 19:56:04  round 23: start grinder (lines=180)
+09-26 19:56:56  round 23: grinder exited (code 0), retry in 30s
+09-26 19:57:26  round 24: start grinder (lines=180)
+09-26 19:58:18  round 24: grinder exited (code 0), retry in 30s
+09-26 19:58:48  round 25: start grinder (lines=180)
+09-26 19:59:40  round 25: grinder exited (code 0), retry in 30s
+09-26 20:00:10  round 26: start grinder (lines=180)
+09-26 20:01:02  round 26: grinder exited (code 0), retry in 30s
+09-26 20:01:32  round 27: start grinder (lines=180)
+09-26 20:02:24  round 27: grinder exited (code 0), retry in 30s
+09-26 20:02:54  round 28: start grinder (lines=180)
+09-26 20:03:46  round 28: grinder exited (code 0), retry in 30s
+09-26 20:04:16  round 29: start grinder (lines=180)
+09-26 20:05:08  round 29: grinder exited (code 0), retry in 30s
+09-26 20:05:38  round 30: start grinder (lines=180)
+09-26 20:06:30  round 30: grinder exited (code 0), retry in 30s
+09-26 20:07:00  round 31: start grinder (lines=180)
+09-26 20:07:52  round 31: grinder exited (code 0), retry in 30s
+09-26 20:08:22  round 32: start grinder (lines=180)
+09-26 20:09:14  round 32: grinder exited (code 0), retry in 30s
+09-26 20:09:44  round 33: start grinder (lines=180)
+09-26 20:10:36  round 33: grinder exited (code 0), retry in 30s
+09-26 20:11:06  round 34: start grinder (lines=180)
+09-26 20:11:58  round 34: grinder exited (code 0), retry in 30s
+09-26 20:12:28  round 35: start grinder (lines=180)
+09-26 20:13:20  round 35: grinder exited (code 0), retry in 30s
+09-26 20:13:50  round 36: start grinder (lines=180)
+09-26 20:14:42  round 36: grinder exited (code 0), retry in 30s
+09-26 20:15:12  round 37: start grinder (lines=180)
+09-26 20:16:04  round 37: grinder exited (code 0), retry in 30s
+09-26 20:16:34  round 38: start grinder (lines=180)
+09-26 20:17:26  round 38: grinder exited (code 0), retry in 30s
+09-26 20:17:56  round 39: start grinder (lines=180)
+09-26 20:18:48  round 39: grinder exited (code 0), retry in 30s
+09-26 20:19:18  round 40: start grinder (lines=180)
+09-26 20:20:10  round 40: grinder exited (code 0), retry in 30s
+09-26 20:20:40  round 41: start grinder (lines=180)
+09-26 20:21:32  round 41: grinder exited (code 0), retry in 30s
+09-26 20:22:02  round 42: start grinder (lines=180)
+09-26 20:22:54  round 42: grinder exited (code 0), retry in 30s
+09-26 20:23:24  round 43: start grinder (lines=180)
+09-26 20:24:16  round 43: grinder exited (code 0), retry in 30s
+09-26 20:24:46  round 44: start grinder (lines=180)
+09-26 20:25:38  round 44: grinder exited (code 0), retry in 30s
+09-26 20:26:08  round 45: start grinder (lines=180)
+09-26 20:27:00  round 45: grinder exited (code 0), retry in 30s
+09-26 20:27:30  round 46: start grinder (lines=180)
+09-26 20:28:22  round 46: grinder exited (code 0), retry in 30s
+09-26 20:28:52  round 47: start grinder (lines=180)
+09-26 20:29:44  round 47: grinder exited (code 0), retry in 30s
+09-26 20:30:14  round 48: start grinder (lines=180)
+09-26 20:31:06  round 48: grinder exited (code 0), retry in 30s
+09-26 20:31:36  round 49: start grinder (lines=180)
+09-26 20:32:28  round 49: grinder exited (code 0), retry in 30s
+09-26 20:32:58  round 50: start grinder (lines=180)
+09-26 20:33:50  round 50: grinder exited (code 0), retry in 30s
+09-26 20:34:20  round 51: start grinder (lines=180)
+09-26 20:35:11  round 51: grinder exited (code 0), retry in 30s
+09-26 20:35:41  round 52: start grinder (lines=180)
+09-26 20:36:34  round 52: grinder exited (code 0), retry in 30s
+09-26 20:37:04  round 53: start grinder (lines=180)
+09-26 20:37:56  round 53: grinder exited (code 0), retry in 30s
+09-26 20:38:26  round 54: start grinder (lines=180)
+09-26 20:39:18  round 54: grinder exited (code 0), retry in 30s
+09-26 20:39:48  round 55: start grinder (lines=180)
+09-26 20:40:39  round 55: grinder exited (code 0), retry in 30s
+09-26 20:41:09  round 56: start grinder (lines=180)
+09-26 20:42:01  round 56: grinder exited (code 0), retry in 30s
+09-26 20:42:31  round 57: start grinder (lines=180)
+09-26 20:43:23  round 57: grinder exited (code 0), retry in 30s
+09-26 20:43:53  round 58: start grinder (lines=180)
+09-26 20:44:45  round 58: grinder exited (code 0), retry in 30s
+09-26 20:45:15  round 59: start grinder (lines=180)
+09-26 20:46:07  round 59: grinder exited (code 0), retry in 30s
+09-26 20:46:37  round 60: start grinder (lines=180)
+09-26 20:47:29  round 60: grinder exited (code 0), retry in 30s
+09-26 20:47:59  round 61: start grinder (lines=180)
+09-26 20:48:51  round 61: grinder exited (code 0), retry in 30s
+09-26 20:49:21  round 62: start grinder (lines=180)
+09-26 20:50:13  round 62: grinder exited (code 0), retry in 30s
+09-26 20:50:43  round 63: start grinder (lines=180)
+09-26 20:51:35  round 63: grinder exited (code 0), retry in 30s
+09-26 20:52:05  round 64: start grinder (lines=180)
+09-26 20:52:56  round 64: grinder exited (code 0), retry in 30s
+09-26 20:53:26  round 65: start grinder (lines=180)
+09-26 20:54:18  round 65: grinder exited (code 0), retry in 30s
+09-26 20:54:48  round 66: start grinder (lines=180)
+09-26 20:55:40  round 66: grinder exited (code 0), retry in 30s
+09-26 20:56:10  round 67: start grinder (lines=180)
+09-26 20:57:02  round 67: grinder exited (code 0), retry in 30s
+09-26 20:57:32  round 68: start grinder (lines=180)
+09-26 20:58:24  round 68: grinder exited (code 0), retry in 30s
+09-26 20:58:54  round 69: start grinder (lines=180)
+09-26 20:59:46  round 69: grinder exited (code 0), retry in 30s
+09-26 21:00:16  round 70: start grinder (lines=180)
+09-26 21:01:08  round 70: grinder exited (code 0), retry in 30s
+09-26 21:01:38  round 71: start grinder (lines=180)
+09-26 21:02:32  round 71: grinder exited (code 0), retry in 30s
+09-26 21:03:02  round 72: start grinder (lines=180)
+09-26 21:03:54  round 72: grinder exited (code 0), retry in 30s
+09-26 21:04:24  round 73: start grinder (lines=180)
+09-26 21:05:16  round 73: grinder exited (code 0), retry in 30s
+09-26 21:05:46  round 74: start grinder (lines=180)
+09-26 21:06:38  round 74: grinder exited (code 0), retry in 30s
+09-26 21:07:08  round 75: start grinder (lines=180)
+09-26 21:08:00  round 75: grinder exited (code 0), retry in 30s
+09-26 21:08:30  round 76: start grinder (lines=180)
+09-26 21:09:22  round 76: grinder exited (code 0), retry in 30s
+09-26 21:09:52  round 77: start grinder (lines=180)
+09-26 21:10:48  round 77: grinder exited (code 0), retry in 30s
+09-26 21:11:18  round 78: start grinder (lines=180)
+09-26 21:12:16  round 78: grinder exited (code 0), retry in 30s
+09-26 21:12:46  round 79: start grinder (lines=180)
+09-26 21:13:38  round 79: grinder exited (code 0), retry in 30s
+09-26 21:14:08  round 80: start grinder (lines=180)
+09-26 21:15:00  round 80: grinder exited (code 0), retry in 30s
+09-26 21:15:30  round 81: start grinder (lines=180)
+09-26 21:16:22  round 81: grinder exited (code 0), retry in 30s
+09-26 21:16:52  round 82: start grinder (lines=180)
+09-26 21:17:44  round 82: grinder exited (code 0), retry in 30s
+09-26 21:18:14  round 83: start grinder (lines=180)
+09-26 21:19:06  round 83: grinder exited (code 0), retry in 30s
+09-26 21:19:36  round 84: start grinder (lines=180)
+09-26 21:20:28  round 84: grinder exited (code 0), retry in 30s
+09-26 21:20:58  round 85: start grinder (lines=180)
+09-26 21:21:50  round 85: grinder exited (code 0), retry in 30s
+09-26 21:22:20  round 86: start grinder (lines=180)
+09-26 21:23:11  round 86: grinder exited (code 0), retry in 30s
+09-26 21:23:41  round 87: start grinder (lines=180)
+09-26 21:24:33  round 87: grinder exited (code 0), retry in 30s
+09-26 21:25:03  round 88: start grinder (lines=180)
+09-26 21:25:55  round 88: grinder exited (code 0), retry in 30s
+09-26 21:26:25  round 89: start grinder (lines=180)
+09-26 21:27:17  round 89: grinder exited (code 0), retry in 30s
+09-26 21:27:47  round 90: start grinder (lines=180)
+09-26 21:28:39  round 90: grinder exited (code 0), retry in 30s
+09-26 21:29:09  round 91: start grinder (lines=180)
+09-26 21:30:01  round 91: grinder exited (code 0), retry in 30s
+09-26 21:30:31  round 92: start grinder (lines=180)
+09-26 21:31:23  round 92: grinder exited (code 0), retry in 30s
+09-26 21:31:53  round 93: start grinder (lines=180)
+09-26 21:32:45  round 93: grinder exited (code 0), retry in 30s
+09-26 21:33:15  round 94: start grinder (lines=180)
+09-26 21:34:07  round 94: grinder exited (code 0), retry in 30s
+09-26 21:34:37  round 95: start grinder (lines=180)
+09-26 21:35:29  round 95: grinder exited (code 0), retry in 30s
+09-26 21:35:59  round 96: start grinder (lines=180)
+09-26 21:36:51  round 96: grinder exited (code 0), retry in 30s
+09-26 21:37:21  round 97: start grinder (lines=180)
+09-26 21:38:13  round 97: grinder exited (code 0), retry in 30s
+09-26 21:38:43  round 98: start grinder (lines=180)
+09-26 21:39:35  round 98: grinder exited (code 0), retry in 30s
+09-26 21:40:05  round 99: start grinder (lines=180)
+09-26 21:40:57  round 99: grinder exited (code 0), retry in 30s
+09-26 21:41:27  round 100: start grinder (lines=180)
+09-26 21:42:19  round 100: grinder exited (code 0), retry in 30s
+09-26 21:42:49  round 101: start grinder (lines=180)
+09-26 21:43:41  round 101: grinder exited (code 0), retry in 30s
+09-26 21:44:11  round 102: start grinder (lines=180)
+09-26 21:45:03  round 102: grinder exited (code 0), retry in 30s
+09-26 21:45:33  round 103: start grinder (lines=180)
+09-26 21:46:25  round 103: grinder exited (code 0), retry in 30s
+09-26 21:46:55  round 104: start grinder (lines=180)
+09-26 21:47:47  round 104: grinder exited (code 0), retry in 30s
+09-26 21:48:17  round 105: start grinder (lines=180)
+09-26 21:49:09  round 105: grinder exited (code 0), retry in 30s
+09-26 21:49:39  round 106: start grinder (lines=180)
+09-26 21:50:31  round 106: grinder exited (code 0), retry in 30s
+09-26 21:51:01  round 107: start grinder (lines=180)
+09-26 21:51:53  round 107: grinder exited (code 0), retry in 30s
+09-26 21:52:23  round 108: start grinder (lines=180)
+09-26 21:53:15  round 108: grinder exited (code 0), retry in 30s
+09-26 21:53:45  round 109: start grinder (lines=180)
+09-26 21:54:36  round 109: grinder exited (code 0), retry in 30s
+09-26 21:55:06  round 110: start grinder (lines=180)
+09-26 21:55:59  round 110: grinder exited (code 0), retry in 30s
+09-26 21:56:29  round 111: start grinder (lines=180)
+09-26 21:57:21  round 111: grinder exited (code 0), retry in 30s
+09-26 21:57:51  round 112: start grinder (lines=180)
+09-26 21:58:43  round 112: grinder exited (code 0), retry in 30s
+09-26 21:59:13  round 113: start grinder (lines=180)
+09-26 22:00:05  round 113: grinder exited (code 0), retry in 30s
+09-26 22:00:35  round 114: start grinder (lines=180)
+09-26 22:01:27  round 114: grinder exited (code 0), retry in 30s
+09-26 22:01:57  round 115: start grinder (lines=180)
+09-26 22:02:49  round 115: grinder exited (code 0), retry in 30s
+09-26 22:03:19  round 116: start grinder (lines=180)
+09-26 22:04:11  round 116: grinder exited (code 0), retry in 30s
+09-26 22:04:41  round 117: start grinder (lines=180)
+09-26 22:05:33  round 117: grinder exited (code 0), retry in 30s
+09-26 22:06:03  round 118: start grinder (lines=180)
+09-26 22:06:55  round 118: grinder exited (code 0), retry in 30s
+09-26 22:07:25  round 119: start grinder (lines=180)
+09-26 22:08:17  round 119: grinder exited (code 0), retry in 30s
+09-26 22:08:47  round 120: start grinder (lines=180)
+09-26 22:09:39  round 120: grinder exited (code 0), retry in 30s
+09-26 22:10:09  round 121: start grinder (lines=180)
+09-26 22:11:01  round 121: grinder exited (code 0), retry in 30s
+09-26 22:11:31  round 122: start grinder (lines=180)
+09-26 22:12:23  round 122: grinder exited (code 0), retry in 30s
+09-26 22:12:53  round 123: start grinder (lines=180)
+09-26 22:13:45  round 123: grinder exited (code 0), retry in 30s
+09-26 22:14:15  round 124: start grinder (lines=180)
+09-26 22:15:07  round 124: grinder exited (code 0), retry in 30s
+09-26 22:15:37  round 125: start grinder (lines=180)
+09-26 22:16:29  round 125: grinder exited (code 0), retry in 30s
+09-26 22:16:59  round 126: start grinder (lines=180)
+09-26 22:17:51  round 126: grinder exited (code 0), retry in 30s
+09-26 22:18:21  round 127: start grinder (lines=180)
+09-26 22:19:13  round 127: grinder exited (code 0), retry in 30s
+09-26 22:19:43  round 128: start grinder (lines=180)
+09-26 22:20:35  round 128: grinder exited (code 0), retry in 30s
+09-26 22:21:05  round 129: start grinder (lines=180)
+09-26 22:21:57  round 129: grinder exited (code 0), retry in 30s
+09-26 22:22:27  round 130: start grinder (lines=180)
+09-26 22:23:19  round 130: grinder exited (code 0), retry in 30s
+09-26 22:23:49  round 131: start grinder (lines=180)
+09-26 22:24:41  round 131: grinder exited (code 0), retry in 30s
+09-26 22:25:11  round 132: start grinder (lines=180)
+09-26 22:26:03  round 132: grinder exited (code 0), retry in 30s
+09-26 22:26:33  round 133: start grinder (lines=180)
+09-26 22:27:25  round 133: grinder exited (code 0), retry in 30s
+09-26 22:27:55  round 134: start grinder (lines=180)
+09-26 22:28:47  round 134: grinder exited (code 0), retry in 30s
+09-26 22:29:17  round 135: start grinder (lines=180)
+09-26 22:30:09  round 135: grinder exited (code 0), retry in 30s
+09-26 22:30:39  round 136: start grinder (lines=180)
+09-26 22:31:31  round 136: grinder exited (code 0), retry in 30s
+09-26 22:32:01  round 137: start grinder (lines=180)
+09-26 22:32:53  round 137: grinder exited (code 0), retry in 30s
+09-26 22:33:23  round 138: start grinder (lines=180)
+09-26 22:34:15  round 138: grinder exited (code 0), retry in 30s
+09-26 22:34:45  round 139: start grinder (lines=180)
+09-26 22:35:37  round 139: grinder exited (code 0), retry in 30s
+09-26 22:36:07  round 140: start grinder (lines=180)
+09-26 22:36:58  round 140: grinder exited (code 0), retry in 30s
+09-26 22:37:29  round 141: start grinder (lines=180)
+09-26 22:38:20  round 141: grinder exited (code 0), retry in 30s
+09-26 22:38:50  round 142: start grinder (lines=180)
+09-26 22:39:42  round 142: grinder exited (code 0), retry in 30s
+09-26 22:40:13  round 143: start grinder (lines=180)
+09-26 22:41:04  round 143: grinder exited (code 0), retry in 30s
+09-26 22:41:35  round 144: start grinder (lines=180)
+09-26 22:42:26  round 144: grinder exited (code 0), retry in 30s
+09-26 22:42:56  round 145: start grinder (lines=180)
+09-26 22:43:49  round 145: grinder exited (code 0), retry in 30s
+09-26 22:44:19  round 146: start grinder (lines=180)
+09-26 22:45:11  round 146: grinder exited (code 0), retry in 30s
+09-26 22:45:41  round 147: start grinder (lines=180)
+09-26 22:46:33  round 147: grinder exited (code 0), retry in 30s
+09-26 22:47:03  round 148: start grinder (lines=180)
+09-26 22:47:54  round 148: grinder exited (code 0), retry in 30s
+09-26 22:48:25  round 149: start grinder (lines=180)
+09-26 22:49:17  round 149: grinder exited (code 0), retry in 30s
+09-26 22:49:47  round 150: start grinder (lines=180)
+09-26 22:50:39  round 150: grinder exited (code 0), retry in 30s
+09-26 22:51:09  round 151: start grinder (lines=180)
+09-26 22:52:01  round 151: grinder exited (code 0), retry in 30s
+09-26 22:52:31  round 152: start grinder (lines=180)
+09-26 22:53:23  round 152: grinder exited (code 0), retry in 30s
+09-26 22:53:53  round 153: start grinder (lines=180)
+09-26 22:54:44  round 153: grinder exited (code 0), retry in 30s
+09-26 22:55:15  round 154: start grinder (lines=180)
+09-26 22:56:06  round 154: grinder exited (code 0), retry in 30s
+09-26 22:56:37  round 155: start grinder (lines=180)
+09-26 22:57:29  round 155: grinder exited (code 0), retry in 30s
+09-26 22:57:59  round 156: start grinder (lines=180)
+09-26 22:58:51  round 156: grinder exited (code 0), retry in 30s
+09-26 22:59:21  round 157: start grinder (lines=180)
+09-26 23:00:12  round 157: grinder exited (code 0), retry in 30s
+09-26 23:00:43  round 158: start grinder (lines=180)
+09-26 23:01:35  round 158: grinder exited (code 0), retry in 30s
+09-26 23:02:05  round 159: start grinder (lines=180)
+09-26 23:02:56  round 159: grinder exited (code 0), retry in 30s
+09-26 23:03:26  round 160: start grinder (lines=180)
+09-26 23:04:18  round 160: grinder exited (code 0), retry in 30s
+09-26 23:04:49  round 161: start grinder (lines=180)
+09-26 23:05:40  round 161: grinder exited (code 0), retry in 30s
+09-26 23:06:10  round 162: start grinder (lines=180)
+09-26 23:07:02  round 162: grinder exited (code 0), retry in 30s
+09-26 23:07:32  round 163: start grinder (lines=180)
+09-26 23:08:24  round 163: grinder exited (code 0), retry in 30s
+09-26 23:08:54  round 164: start grinder (lines=180)
+09-26 23:09:46  round 164: grinder exited (code 0), retry in 30s
+09-26 23:10:16  round 165: start grinder (lines=180)
+09-26 23:11:08  round 165: grinder exited (code 0), retry in 30s
+09-26 23:11:38  round 166: start grinder (lines=180)
+09-26 23:12:30  round 166: grinder exited (code 0), retry in 30s
+09-26 23:13:00  round 167: start grinder (lines=180)
+09-26 23:13:52  round 167: grinder exited (code 0), retry in 30s
+09-26 23:14:22  round 168: start grinder (lines=180)
+09-26 23:15:14  round 168: grinder exited (code 0), retry in 30s
+09-26 23:15:44  round 169: start grinder (lines=180)
+09-26 23:16:36  round 169: grinder exited (code 0), retry in 30s
+09-26 23:17:06  round 170: start grinder (lines=180)
+09-26 23:17:58  round 170: grinder exited (code 0), retry in 30s
+09-26 23:18:28  round 171: start grinder (lines=180)
+09-26 23:19:20  round 171: grinder exited (code 0), retry in 30s
+09-26 23:19:50  round 172: start grinder (lines=180)
+09-26 23:20:42  round 172: grinder exited (code 0), retry in 30s
+09-26 23:21:12  round 173: start grinder (lines=180)
+09-26 23:22:04  round 173: grinder exited (code 0), retry in 30s
+09-26 23:22:34  round 174: start grinder (lines=180)
+09-26 23:23:25  round 174: grinder exited (code 0), retry in 30s
+09-26 23:23:56  round 175: start grinder (lines=180)
+09-26 23:24:48  round 175: grinder exited (code 0), retry in 30s
+09-26 23:25:18  round 176: start grinder (lines=180)
+09-26 23:26:16  round 176: grinder exited (code 0), retry in 30s
+09-26 23:26:46  round 177: start grinder (lines=180)
+09-26 23:27:39  round 177: grinder exited (code 0), retry in 30s
+09-26 23:28:09  round 178: start grinder (lines=180)
+09-26 23:29:01  round 178: grinder exited (code 0), retry in 30s
+09-26 23:29:31  round 179: start grinder (lines=180)
+09-26 23:30:28  round 179: grinder exited (code 0), retry in 30s
+09-26 23:30:58  round 180: start grinder (lines=180)
+09-26 23:31:51  round 180: grinder exited (code 0), retry in 30s
+09-26 23:32:21  round 181: start grinder (lines=180)
+09-26 23:33:13  round 181: grinder exited (code 0), retry in 30s
+09-26 23:33:43  round 182: start grinder (lines=180)
+09-26 23:34:35  round 182: grinder exited (code 0), retry in 30s
+09-26 23:35:05  round 183: start grinder (lines=180)
+09-26 23:35:57  round 183: grinder exited (code 0), retry in 30s
+09-26 23:36:27  round 184: start grinder (lines=180)
+09-26 23:37:19  round 184: grinder exited (code 0), retry in 30s
+09-26 23:37:49  round 185: start grinder (lines=180)
+09-26 23:38:41  round 185: grinder exited (code 0), retry in 30s
+09-26 23:39:11  round 186: start grinder (lines=180)
+09-26 23:40:03  round 186: grinder exited (code 0), retry in 30s
+09-26 23:40:33  round 187: start grinder (lines=180)
+09-26 23:41:25  round 187: grinder exited (code 0), retry in 30s
+09-26 23:41:55  round 188: start grinder (lines=180)
+09-26 23:42:46  round 188: grinder exited (code 0), retry in 30s
+09-26 23:43:16  round 189: start grinder (lines=180)
+09-26 23:44:08  round 189: grinder exited (code 0), retry in 30s
+09-26 23:44:38  round 190: start grinder (lines=180)
+09-26 23:45:30  round 190: grinder exited (code 0), retry in 30s
+09-26 23:46:00  round 191: start grinder (lines=180)
+09-26 23:46:52  round 191: grinder exited (code 0), retry in 30s
+09-26 23:47:22  round 192: start grinder (lines=180)
+09-26 23:48:14  round 192: grinder exited (code 0), retry in 30s
+09-26 23:48:44  round 193: start grinder (lines=180)
+09-26 23:49:36  round 193: grinder exited (code 0), retry in 30s
+09-26 23:50:06  round 194: start grinder (lines=180)
+09-26 23:50:58  round 194: grinder exited (code 0), retry in 30s
+09-26 23:51:28  round 195: start grinder (lines=180)
+09-26 23:52:20  round 195: grinder exited (code 0), retry in 30s
+09-26 23:52:50  round 196: start grinder (lines=180)
+09-26 23:53:42  round 196: grinder exited (code 0), retry in 30s
+09-26 23:54:12  round 197: start grinder (lines=180)
+09-26 23:55:04  round 197: grinder exited (code 0), retry in 30s
+09-26 23:55:34  round 198: start grinder (lines=180)
+09-26 23:56:26  round 198: grinder exited (code 0), retry in 30s
+09-26 23:56:56  round 199: start grinder (lines=180)
+09-26 23:57:48  round 199: grinder exited (code 0), retry in 30s
+09-26 23:58:18  round 200: start grinder (lines=180)
+09-26 23:59:10  round 200: grinder exited (code 0), retry in 30s
+09-26 23:59:40  round 201: start grinder (lines=180)
+09-27 00:00:32  round 201: grinder exited (code 0), retry in 30s
+09-27 00:01:02  round 202: start grinder (lines=180)
+09-27 00:01:54  round 202: grinder exited (code 0), retry in 30s
+09-27 00:02:24  round 203: start grinder (lines=180)
+09-27 00:03:15  round 203: grinder exited (code 0), retry in 30s
+09-27 00:03:46  round 204: start grinder (lines=180)
+09-27 00:04:37  round 204: grinder exited (code 0), retry in 30s
+09-27 00:05:07  round 205: start grinder (lines=180)
+09-27 00:05:59  round 205: grinder exited (code 0), retry in 30s
+09-27 00:06:29  round 206: start grinder (lines=180)
+09-27 00:07:22  round 206: grinder exited (code 0), retry in 30s
+09-27 00:07:52  round 207: start grinder (lines=180)
+09-27 00:08:44  round 207: grinder exited (code 0), retry in 30s
+09-27 00:09:14  round 208: start grinder (lines=180)
+09-27 00:10:06  round 208: grinder exited (code 0), retry in 30s
+09-27 00:10:36  round 209: start grinder (lines=180)
+09-27 00:11:28  round 209: grinder exited (code 0), retry in 30s
+09-27 00:11:58  round 210: start grinder (lines=180)
+09-27 00:12:49  round 210: grinder exited (code 0), retry in 30s
+09-27 00:13:19  round 211: start grinder (lines=180)
+09-27 00:14:11  round 211: grinder exited (code 0), retry in 30s
+09-27 00:14:41  round 212: start grinder (lines=180)
+09-27 00:15:33  round 212: grinder exited (code 0), retry in 30s
+09-27 00:16:03  round 213: start grinder (lines=180)
+09-27 00:16:55  round 213: grinder exited (code 0), retry in 30s
+09-27 00:17:26  round 214: start grinder (lines=180)
+09-27 00:18:17  round 214: grinder exited (code 0), retry in 30s
+09-27 00:18:47  round 215: start grinder (lines=180)
+09-27 00:19:39  round 215: grinder exited (code 0), retry in 30s
+09-27 00:20:09  round 216: start grinder (lines=180)
+09-27 00:21:01  round 216: grinder exited (code 0), retry in 30s
+09-27 00:21:31  round 217: start grinder (lines=180)
+09-27 00:22:23  round 217: grinder exited (code 0), retry in 30s
+09-27 00:22:53  round 218: start grinder (lines=180)
+09-27 00:23:45  round 218: grinder exited (code 0), retry in 30s
+09-27 00:24:15  round 219: start grinder (lines=180)
+09-27 00:25:07  round 219: grinder exited (code 0), retry in 30s
+09-27 00:25:37  round 220: start grinder (lines=180)
+09-27 00:26:29  round 220: grinder exited (code 0), retry in 30s
+09-27 00:26:59  round 221: start grinder (lines=180)
+09-27 00:27:51  round 221: grinder exited (code 0), retry in 30s
+09-27 00:28:21  round 222: start grinder (lines=180)
+09-27 00:29:13  round 222: grinder exited (code 0), retry in 30s
+09-27 00:29:43  round 223: start grinder (lines=180)
+09-27 00:30:35  round 223: grinder exited (code 0), retry in 30s
+09-27 00:31:05  round 224: start grinder (lines=180)
+09-27 00:31:57  round 224: grinder exited (code 0), retry in 30s
+09-27 00:32:27  round 225: start grinder (lines=180)
+09-27 00:33:18  round 225: grinder exited (code 0), retry in 30s
+09-27 00:33:48  round 226: start grinder (lines=180)
+09-27 00:34:40  round 226: grinder exited (code 0), retry in 30s
+09-27 00:35:11  round 227: start grinder (lines=180)
+09-27 00:36:02  round 227: grinder exited (code 0), retry in 30s
+09-27 00:36:32  round 228: start grinder (lines=180)
+09-27 00:37:25  round 228: grinder exited (code 0), retry in 30s
+09-27 00:37:55  round 229: start grinder (lines=180)
+09-27 00:38:47  round 229: grinder exited (code 0), retry in 30s
+09-27 00:39:17  round 230: start grinder (lines=180)
+09-27 00:40:08  round 230: grinder exited (code 0), retry in 30s
+09-27 00:40:39  round 231: start grinder (lines=180)
+09-27 00:41:30  round 231: grinder exited (code 0), retry in 30s
+09-27 00:42:00  round 232: start grinder (lines=180)
+09-27 00:42:52  round 232: grinder exited (code 0), retry in 30s
+09-27 00:43:22  round 233: start grinder (lines=180)
+09-27 00:44:14  round 233: grinder exited (code 0), retry in 30s
+09-27 00:44:44  round 234: start grinder (lines=180)
+09-27 00:45:36  round 234: grinder exited (code 0), retry in 30s
+09-27 00:46:06  round 235: start grinder (lines=180)
+09-27 00:46:58  round 235: grinder exited (code 0), retry in 30s
+09-27 00:47:28  round 236: start grinder (lines=180)
+09-27 00:48:20  round 236: grinder exited (code 0), retry in 30s
+09-27 00:48:50  round 237: start grinder (lines=180)
+09-27 00:49:41  round 237: grinder exited (code 0), retry in 30s
+09-27 00:50:12  round 238: start grinder (lines=180)
+09-27 00:51:03  round 238: grinder exited (code 0), retry in 30s
+09-27 00:51:33  round 239: start grinder (lines=180)
+09-27 00:52:26  round 239: grinder exited (code 0), retry in 30s
+09-27 00:52:56  round 240: start grinder (lines=180)
+09-27 00:53:48  round 240: grinder exited (code 0), retry in 30s
+09-27 00:54:18  round 241: start grinder (lines=180)
+09-27 00:55:10  round 241: grinder exited (code 0), retry in 30s
+09-27 00:55:40  round 242: start grinder (lines=180)
+09-27 00:56:31  round 242: grinder exited (code 0), retry in 30s
+09-27 00:57:01  round 243: start grinder (lines=180)
+09-27 00:57:53  round 243: grinder exited (code 0), retry in 30s
+09-27 00:58:23  round 244: start grinder (lines=180)
+09-27 00:59:15  round 244: grinder exited (code 0), retry in 30s
+09-27 00:59:45  round 245: start grinder (lines=180)
+09-27 01:00:37  round 245: grinder exited (code 0), retry in 30s
+09-27 01:01:07  round 246: start grinder (lines=180)
+09-27 01:01:59  round 246: grinder exited (code 0), retry in 30s
+09-27 01:02:29  round 247: start grinder (lines=180)
+09-27 01:03:21  round 247: grinder exited (code 0), retry in 30s
+09-27 01:03:51  round 248: start grinder (lines=180)
+09-27 01:04:43  round 248: grinder exited (code 0), retry in 30s
+09-27 01:05:13  round 249: start grinder (lines=180)
+09-27 01:06:05  round 249: grinder exited (code 0), retry in 30s
+09-27 01:06:35  round 250: start grinder (lines=180)
+09-27 01:07:27  round 250: grinder exited (code 0), retry in 30s
+09-27 01:07:57  round 251: start grinder (lines=180)
+09-27 01:08:49  round 251: grinder exited (code 0), retry in 30s
+09-27 01:09:19  round 252: start grinder (lines=180)
+09-27 01:10:10  round 252: grinder exited (code 0), retry in 30s
+09-27 01:10:41  round 253: start grinder (lines=180)
+09-27 01:11:32  round 253: grinder exited (code 0), retry in 30s
+09-27 01:12:03  round 254: start grinder (lines=180)
+09-27 01:12:55  round 254: grinder exited (code 0), retry in 30s
+09-27 01:13:25  round 255: start grinder (lines=180)
+09-27 01:14:17  round 255: grinder exited (code 0), retry in 30s
+09-27 01:14:47  round 256: start grinder (lines=180)
+09-27 01:15:39  round 256: grinder exited (code 0), retry in 30s
+09-27 01:16:09  round 257: start grinder (lines=180)
+09-27 01:17:01  round 257: grinder exited (code 0), retry in 30s
+09-27 01:17:31  round 258: start grinder (lines=180)
+09-27 01:18:23  round 258: grinder exited (code 0), retry in 30s
+09-27 01:18:53  round 259: start grinder (lines=180)
+09-27 01:19:45  round 259: grinder exited (code 0), retry in 30s
+09-27 01:20:15  round 260: start grinder (lines=180)
+09-27 01:21:07  round 260: grinder exited (code 0), retry in 30s
+09-27 01:21:37  round 261: start grinder (lines=180)
+09-27 01:22:34  round 261: grinder exited (code 0), retry in 30s
+09-27 01:23:04  round 262: start grinder (lines=180)
+09-27 01:23:56  round 262: grinder exited (code 0), retry in 30s
+09-27 01:24:26  round 263: start grinder (lines=180)
+09-27 01:25:18  round 263: grinder exited (code 0), retry in 30s
+09-27 01:25:48  round 264: start grinder (lines=180)
+09-27 01:26:40  round 264: grinder exited (code 0), retry in 30s
+09-27 01:27:10  round 265: start grinder (lines=180)
+09-27 01:28:02  round 265: grinder exited (code 0), retry in 30s
+09-27 01:28:32  round 266: start grinder (lines=180)
+09-27 01:29:24  round 266: grinder exited (code 0), retry in 30s
+09-27 01:29:54  round 267: start grinder (lines=180)
+09-27 01:30:46  round 267: grinder exited (code 0), retry in 30s
+09-27 01:31:16  round 268: start grinder (lines=180)
+09-27 01:32:08  round 268: grinder exited (code 0), retry in 30s
+09-27 01:32:38  round 269: start grinder (lines=180)
+09-27 01:33:30  round 269: grinder exited (code 0), retry in 30s
+09-27 01:34:00  round 270: start grinder (lines=180)
+09-27 01:34:52  round 270: grinder exited (code 0), retry in 30s
+09-27 01:35:22  round 271: start grinder (lines=180)
+09-27 01:36:14  round 271: grinder exited (code 0), retry in 30s
+09-27 01:36:44  round 272: start grinder (lines=180)
+09-27 01:37:36  round 272: grinder exited (code 0), retry in 30s
+09-27 01:38:06  round 273: start grinder (lines=180)
+09-27 01:38:58  round 273: grinder exited (code 0), retry in 30s
+09-27 01:39:28  round 274: start grinder (lines=180)
+09-27 01:40:20  round 274: grinder exited (code 0), retry in 30s
+09-27 01:40:50  round 275: start grinder (lines=180)
+09-27 01:41:42  round 275: grinder exited (code 0), retry in 30s
+09-27 01:42:12  round 276: start grinder (lines=180)
+09-27 01:43:04  round 276: grinder exited (code 0), retry in 30s
+09-27 01:43:34  round 277: start grinder (lines=180)
+09-27 01:44:26  round 277: grinder exited (code 0), retry in 30s
+09-27 01:44:56  round 278: start grinder (lines=180)
+09-27 01:45:48  round 278: grinder exited (code 0), retry in 30s
+09-27 01:46:18  round 279: start grinder (lines=180)
+09-27 01:47:10  round 279: grinder exited (code 0), retry in 30s
+09-27 01:47:40  round 280: start grinder (lines=180)
+09-27 01:48:32  round 280: grinder exited (code 0), retry in 30s
+09-27 01:49:02  round 281: start grinder (lines=180)
+09-27 01:49:54  round 281: grinder exited (code 0), retry in 30s
+09-27 01:50:24  round 282: start grinder (lines=180)
+09-27 01:51:16  round 282: grinder exited (code 0), retry in 30s
+09-27 01:51:46  round 283: start grinder (lines=180)
+09-27 01:52:38  round 283: grinder exited (code 0), retry in 30s
+09-27 01:53:08  round 284: start grinder (lines=180)
+09-27 01:53:59  round 284: grinder exited (code 0), retry in 30s
+09-27 01:54:30  round 285: start grinder (lines=180)
+09-27 01:55:22  round 285: grinder exited (code 0), retry in 30s
+09-27 01:55:52  round 286: start grinder (lines=180)
+09-27 01:56:44  round 286: grinder exited (code 0), retry in 30s
+09-27 01:57:14  round 287: start grinder (lines=180)
+09-27 01:58:06  round 287: grinder exited (code 0), retry in 30s
+09-27 01:58:36  round 288: start grinder (lines=180)
+09-27 01:59:27  round 288: grinder exited (code 0), retry in 30s
+09-27 01:59:57  round 289: start grinder (lines=180)
+09-27 02:00:49  round 289: grinder exited (code 0), retry in 30s
+09-27 02:01:19  round 290: start grinder (lines=180)
+09-27 02:02:11  round 290: grinder exited (code 0), retry in 30s
+09-27 02:02:41  round 291: start grinder (lines=180)
+09-27 02:03:33  round 291: grinder exited (code 0), retry in 30s
+09-27 02:04:03  round 292: start grinder (lines=180)
+09-27 02:04:55  round 292: grinder exited (code 0), retry in 30s
+09-27 02:05:25  round 293: start grinder (lines=180)
+09-27 02:06:17  round 293: grinder exited (code 0), retry in 30s
+09-27 02:06:47  round 294: start grinder (lines=180)
+09-27 02:07:39  round 294: grinder exited (code 0), retry in 30s
+09-27 02:08:09  round 295: start grinder (lines=180)
+09-27 02:09:01  round 295: grinder exited (code 0), retry in 30s
+09-27 02:09:31  round 296: start grinder (lines=180)
+09-27 02:10:23  round 296: grinder exited (code 0), retry in 30s
+09-27 02:10:53  round 297: start grinder (lines=180)
+09-27 02:11:44  round 297: grinder exited (code 0), retry in 30s
+09-27 02:12:15  round 298: start grinder (lines=180)
+09-27 02:13:07  round 298: grinder exited (code 0), retry in 30s
+09-27 02:13:37  round 299: start grinder (lines=180)
+09-27 02:14:29  round 299: grinder exited (code 0), retry in 30s
+09-27 02:14:59  round 300: start grinder (lines=180)
+09-27 02:15:51  round 300: grinder exited (code 0), retry in 30s
+09-27 02:16:21  round 301: start grinder (lines=180)
+09-27 02:17:13  round 301: grinder exited (code 0), retry in 30s
+09-27 02:17:43  round 302: start grinder (lines=180)
+09-27 02:18:35  round 302: grinder exited (code 0), retry in 30s
+09-27 02:19:05  round 303: start grinder (lines=180)
+09-27 02:19:57  round 303: grinder exited (code 0), retry in 30s
+09-27 02:20:27  round 304: start grinder (lines=180)
+09-27 02:21:24  round 304: grinder exited (code 0), retry in 30s
+09-27 02:21:54  round 305: start grinder (lines=180)
+09-27 02:22:46  round 305: grinder exited (code 0), retry in 30s
+09-27 02:23:17  round 306: start grinder (lines=180)
+09-27 02:24:09  round 306: grinder exited (code 0), retry in 30s
+09-27 02:24:39  round 307: start grinder (lines=180)
+09-27 02:25:30  round 307: grinder exited (code 0), retry in 30s
+09-27 02:26:01  round 308: start grinder (lines=180)
+09-27 02:26:53  round 308: grinder exited (code 0), retry in 30s
+09-27 02:27:23  round 309: start grinder (lines=180)
+09-27 02:28:14  round 309: grinder exited (code 0), retry in 30s
+09-27 02:28:44  round 310: start grinder (lines=180)
+09-27 02:29:36  round 310: grinder exited (code 0), retry in 30s
+09-27 02:30:06  round 311: start grinder (lines=180)
+09-27 02:30:58  round 311: grinder exited (code 0), retry in 30s
+09-27 02:31:28  round 312: start grinder (lines=180)
+09-27 02:32:21  round 312: grinder exited (code 0), retry in 30s
+09-27 02:32:51  round 313: start grinder (lines=180)
+09-27 02:33:42  round 313: grinder exited (code 0), retry in 30s
+09-27 02:34:13  round 314: start grinder (lines=180)
+09-27 02:35:04  round 314: grinder exited (code 0), retry in 30s
+09-27 02:35:34  round 315: start grinder (lines=180)
+09-27 02:36:26  round 315: grinder exited (code 0), retry in 30s
+09-27 02:36:56  round 316: start grinder (lines=180)
+09-27 02:37:48  round 316: grinder exited (code 0), retry in 30s
+09-27 02:38:18  round 317: start grinder (lines=180)
+09-27 02:39:10  round 317: grinder exited (code 0), retry in 30s
+09-27 02:39:40  round 318: start grinder (lines=180)
+09-27 02:40:32  round 318: grinder exited (code 0), retry in 30s
+09-27 02:41:02  round 319: start grinder (lines=180)
+09-27 02:41:54  round 319: grinder exited (code 0), retry in 30s
+09-27 02:42:24  round 320: start grinder (lines=180)
+09-27 02:43:16  round 320: grinder exited (code 0), retry in 30s
+09-27 02:43:46  round 321: start grinder (lines=180)
+09-27 02:44:38  round 321: grinder exited (code 0), retry in 30s
+09-27 02:45:08  round 322: start grinder (lines=180)
+09-27 02:46:00  round 322: grinder exited (code 0), retry in 30s
+09-27 02:46:30  round 323: start grinder (lines=180)
+09-27 02:47:22  round 323: grinder exited (code 0), retry in 30s
+09-27 02:47:52  round 324: start grinder (lines=180)
+09-27 02:48:44  round 324: grinder exited (code 0), retry in 30s
+09-27 02:49:14  round 325: start grinder (lines=180)
+09-27 02:50:06  round 325: grinder exited (code 0), retry in 30s
+09-27 02:50:36  round 326: start grinder (lines=180)
+09-27 02:51:28  round 326: grinder exited (code 0), retry in 30s
+09-27 02:51:58  round 327: start grinder (lines=180)
+09-27 02:52:50  round 327: grinder exited (code 0), retry in 30s
+09-27 02:53:20  round 328: start grinder (lines=180)
+09-27 02:54:11  round 328: grinder exited (code 0), retry in 30s
+09-27 02:54:42  round 329: start grinder (lines=180)
+09-27 02:55:33  round 329: grinder exited (code 0), retry in 30s
+09-27 02:56:04  round 330: start grinder (lines=180)
+09-27 02:56:55  round 330: grinder exited (code 0), retry in 30s
+09-27 02:57:26  round 331: start grinder (lines=180)
+09-27 02:58:17  round 331: grinder exited (code 0), retry in 30s
+09-27 02:58:47  round 332: start grinder (lines=180)
+09-27 02:59:39  round 332: grinder exited (code 0), retry in 30s
+09-27 03:00:09  round 333: start grinder (lines=180)
+09-27 03:01:01  round 333: grinder exited (code 0), retry in 30s
+09-27 03:01:31  round 334: start grinder (lines=180)
+09-27 03:02:23  round 334: grinder exited (code 0), retry in 30s
+09-27 03:02:53  round 335: start grinder (lines=180)
+09-27 03:03:45  round 335: grinder exited (code 0), retry in 30s
+09-27 03:04:15  round 336: start grinder (lines=180)
+09-27 03:05:07  round 336: grinder exited (code 0), retry in 30s
+09-27 03:05:37  round 337: start grinder (lines=180)
+09-27 03:06:29  round 337: grinder exited (code 0), retry in 30s
+09-27 03:06:59  round 338: start grinder (lines=180)
+09-27 03:07:51  round 338: grinder exited (code 0), retry in 30s
+09-27 03:08:21  round 339: start grinder (lines=180)
+09-27 03:09:13  round 339: grinder exited (code 0), retry in 30s
+09-27 03:09:43  round 340: start grinder (lines=180)
+09-27 03:10:35  round 340: grinder exited (code 0), retry in 30s
+09-27 03:11:05  round 341: start grinder (lines=180)
+09-27 03:11:57  round 341: grinder exited (code 0), retry in 30s
+09-27 03:12:27  round 342: start grinder (lines=180)
+09-27 03:13:19  round 342: grinder exited (code 0), retry in 30s
+09-27 03:13:49  round 343: start grinder (lines=180)
+09-27 03:14:41  round 343: grinder exited (code 0), retry in 30s
+09-27 03:15:11  round 344: start grinder (lines=180)
+09-27 03:16:02  round 344: grinder exited (code 0), retry in 30s
+09-27 03:16:33  round 345: start grinder (lines=180)
+09-27 03:17:24  round 345: grinder exited (code 0), retry in 30s
+09-27 03:17:54  round 346: start grinder (lines=180)
+09-27 03:18:46  round 346: grinder exited (code 0), retry in 30s
+09-27 03:19:16  round 347: start grinder (lines=180)
+09-27 03:20:13  round 347: grinder exited (code 0), retry in 30s
+09-27 03:20:44  round 348: start grinder (lines=180)
+09-27 03:21:36  round 348: grinder exited (code 0), retry in 30s
+09-27 03:22:06  round 349: start grinder (lines=180)
+09-27 03:22:58  round 349: grinder exited (code 0), retry in 30s
+09-27 03:23:28  round 350: start grinder (lines=180)
+09-27 03:24:20  round 350: grinder exited (code 0), retry in 30s
+09-27 03:24:50  round 351: start grinder (lines=180)
+09-27 03:25:42  round 351: grinder exited (code 0), retry in 30s
+09-27 03:26:12  round 352: start grinder (lines=180)
+09-27 03:27:04  round 352: grinder exited (code 0), retry in 30s
+09-27 03:27:34  round 353: start grinder (lines=180)
+09-27 03:28:26  round 353: grinder exited (code 0), retry in 30s
+09-27 03:28:56  round 354: start grinder (lines=180)
+09-27 03:29:47  round 354: grinder exited (code 0), retry in 30s
+09-27 03:30:18  round 355: start grinder (lines=180)
+09-27 03:31:14  round 355: grinder exited (code 0), retry in 30s
+09-27 03:31:44  round 356: start grinder (lines=180)
+09-27 03:32:36  round 356: grinder exited (code 0), retry in 30s
+09-27 03:33:06  round 357: start grinder (lines=180)
+09-27 03:33:58  round 357: grinder exited (code 0), retry in 30s
+09-27 03:34:28  round 358: start grinder (lines=180)
+09-27 03:35:19  round 358: grinder exited (code 0), retry in 30s
+09-27 03:35:50  round 359: start grinder (lines=180)
+09-27 03:36:41  round 359: grinder exited (code 0), retry in 30s
+09-27 03:37:11  round 360: start grinder (lines=180)
+09-27 03:38:04  round 360: grinder exited (code 0), retry in 30s
+09-27 03:38:34  round 361: start grinder (lines=180)
+09-27 03:39:26  round 361: grinder exited (code 0), retry in 30s
+09-27 03:39:56  round 362: start grinder (lines=180)
+09-27 03:40:49  round 362: grinder exited (code 0), retry in 30s
+09-27 03:41:19  round 363: start grinder (lines=180)
+09-27 03:42:11  round 363: grinder exited (code 0), retry in 30s
+09-27 03:42:41  round 364: start grinder (lines=180)
+09-27 03:43:33  round 364: grinder exited (code 0), retry in 30s
+09-27 03:44:03  round 365: start grinder (lines=180)
+09-27 03:44:55  round 365: grinder exited (code 0), retry in 30s
+09-27 03:45:25  round 366: start grinder (lines=180)
+09-27 03:46:16  round 366: grinder exited (code 0), retry in 30s
+09-27 03:46:47  round 367: start grinder (lines=180)
+09-27 03:47:39  round 367: grinder exited (code 0), retry in 30s
+09-27 03:48:09  round 368: start grinder (lines=180)
+09-27 03:49:00  round 368: grinder exited (code 0), retry in 30s
+09-27 03:49:31  round 369: start grinder (lines=180)
+09-27 03:50:22  round 369: grinder exited (code 0), retry in 30s
+09-27 03:50:53  round 370: start grinder (lines=180)
+09-27 03:51:44  round 370: grinder exited (code 0), retry in 30s
+09-27 03:52:15  round 371: start grinder (lines=180)
+09-27 03:53:06  round 371: grinder exited (code 0), retry in 30s
+09-27 03:53:36  round 372: start grinder (lines=180)
+09-27 03:54:28  round 372: grinder exited (code 0), retry in 30s
+09-27 03:54:58  round 373: start grinder (lines=180)
+09-27 03:55:50  round 373: grinder exited (code 0), retry in 30s
+09-27 03:56:20  round 374: start grinder (lines=180)
+09-27 03:57:12  round 374: grinder exited (code 0), retry in 30s
+09-27 03:57:42  round 375: start grinder (lines=180)
+09-27 03:58:34  round 375: grinder exited (code 0), retry in 30s
+09-27 03:59:04  round 376: start grinder (lines=180)
+09-27 03:59:56  round 376: grinder exited (code 0), retry in 30s
+09-27 04:00:26  round 377: start grinder (lines=180)
+09-27 04:01:18  round 377: grinder exited (code 0), retry in 30s
+09-27 04:01:48  round 378: start grinder (lines=180)
+09-27 04:02:40  round 378: grinder exited (code 0), retry in 30s
+09-27 04:03:10  round 379: start grinder (lines=180)
+09-27 04:04:02  round 379: grinder exited (code 0), retry in 30s
+09-27 04:04:32  round 380: start grinder (lines=180)
+09-27 04:05:24  round 380: grinder exited (code 0), retry in 30s
+09-27 04:05:54  round 381: start grinder (lines=180)
+09-27 04:06:46  round 381: grinder exited (code 0), retry in 30s
+09-27 04:07:16  round 382: start grinder (lines=180)
+09-27 04:08:08  round 382: grinder exited (code 0), retry in 30s
+09-27 04:08:38  round 383: start grinder (lines=180)
+09-27 04:09:30  round 383: grinder exited (code 0), retry in 30s
+09-27 04:10:00  round 384: start grinder (lines=180)
+09-27 04:10:52  round 384: grinder exited (code 0), retry in 30s
+09-27 04:11:22  round 385: start grinder (lines=180)
+09-27 04:12:13  round 385: grinder exited (code 0), retry in 30s
+09-27 04:12:44  round 386: start grinder (lines=180)
+09-27 04:13:36  round 386: grinder exited (code 0), retry in 30s
+09-27 04:14:06  round 387: start grinder (lines=180)
+09-27 04:14:57  round 387: grinder exited (code 0), retry in 30s
+09-27 04:15:27  round 388: start grinder (lines=180)
+09-27 04:16:19  round 388: grinder exited (code 0), retry in 30s
+09-27 04:16:49  round 389: start grinder (lines=180)
+09-27 04:17:41  round 389: grinder exited (code 0), retry in 30s
+09-27 04:18:11  round 390: start grinder (lines=180)
+09-27 04:19:03  round 390: grinder exited (code 0), retry in 30s
+09-27 04:19:33  round 391: start grinder (lines=180)
+09-27 04:20:25  round 391: grinder exited (code 0), retry in 30s
+09-27 04:20:55  round 392: start grinder (lines=180)
+09-27 04:21:47  round 392: grinder exited (code 0), retry in 30s
+09-27 04:22:17  round 393: start grinder (lines=180)
+09-27 04:23:09  round 393: grinder exited (code 0), retry in 30s
+09-27 04:23:39  round 394: start grinder (lines=180)
+09-27 04:24:31  round 394: grinder exited (code 0), retry in 30s
+09-27 04:25:01  round 395: start grinder (lines=180)
+09-27 04:25:53  round 395: grinder exited (code 0), retry in 30s
+09-27 04:26:23  round 396: start grinder (lines=180)
+09-27 04:27:15  round 396: grinder exited (code 0), retry in 30s
+09-27 04:27:45  round 397: start grinder (lines=180)
+09-27 04:28:37  round 397: grinder exited (code 0), retry in 30s
+09-27 04:29:07  round 398: start grinder (lines=180)
+09-27 04:29:59  round 398: grinder exited (code 0), retry in 30s
+09-27 04:30:29  round 399: start grinder (lines=180)
+09-27 04:31:21  round 399: grinder exited (code 0), retry in 30s
+09-27 04:31:51  round 400: start grinder (lines=180)
+09-27 04:32:42  round 400: grinder exited (code 0), retry in 30s
+09-27 04:33:13  round 401: start grinder (lines=180)
+09-27 04:34:04  round 401: grinder exited (code 0), retry in 30s
+09-27 04:34:34  round 402: start grinder (lines=180)
+09-27 04:35:26  round 402: grinder exited (code 0), retry in 30s
+09-27 04:35:56  round 403: start grinder (lines=180)
+09-27 04:36:48  round 403: grinder exited (code 0), retry in 30s
+09-27 04:37:18  round 404: start grinder (lines=180)
+09-27 04:38:10  round 404: grinder exited (code 0), retry in 30s
+09-27 04:38:40  round 405: start grinder (lines=180)
+09-27 04:39:32  round 405: grinder exited (code 0), retry in 30s
+09-27 04:40:02  round 406: start grinder (lines=180)
+09-27 04:40:54  round 406: grinder exited (code 0), retry in 30s
+09-27 04:41:24  round 407: start grinder (lines=180)
+09-27 04:42:21  round 407: grinder exited (code 0), retry in 30s
+09-27 04:42:51  round 408: start grinder (lines=180)
+09-27 04:43:43  round 408: grinder exited (code 0), retry in 30s
+09-27 04:44:13  round 409: start grinder (lines=180)
+09-27 04:45:05  round 409: grinder exited (code 0), retry in 30s
+09-27 04:45:35  round 410: start grinder (lines=180)
+09-27 04:46:27  round 410: grinder exited (code 0), retry in 30s
+09-27 04:46:58  round 411: start grinder (lines=180)
+09-27 04:47:49  round 411: grinder exited (code 0), retry in 30s
+09-27 04:48:19  round 412: start grinder (lines=180)
+09-27 04:49:11  round 412: grinder exited (code 0), retry in 30s
+09-27 04:49:41  round 413: start grinder (lines=180)
+09-27 04:50:33  round 413: grinder exited (code 0), retry in 30s
+09-27 04:51:03  round 414: start grinder (lines=180)
+09-27 04:51:55  round 414: grinder exited (code 0), retry in 30s
+09-27 04:52:25  round 415: start grinder (lines=180)
+09-27 04:53:17  round 415: grinder exited (code 0), retry in 30s
+09-27 04:53:47  round 416: start grinder (lines=180)
+09-27 04:54:39  round 416: grinder exited (code 0), retry in 30s
+09-27 04:55:09  round 417: start grinder (lines=180)
+09-27 04:56:01  round 417: grinder exited (code 0), retry in 30s
+09-27 04:56:31  round 418: start grinder (lines=180)
+09-27 04:57:23  round 418: grinder exited (code 0), retry in 30s
+09-27 04:57:53  round 419: start grinder (lines=180)
+09-27 04:58:45  round 419: grinder exited (code 0), retry in 30s
+09-27 04:59:15  round 420: start grinder (lines=180)
+09-27 05:00:07  round 420: grinder exited (code 0), retry in 30s
+09-27 05:00:37  round 421: start grinder (lines=180)
+09-27 05:01:29  round 421: grinder exited (code 0), retry in 30s
+09-27 05:01:59  round 422: start grinder (lines=180)
+09-27 05:02:51  round 422: grinder exited (code 0), retry in 30s
+09-27 05:03:21  round 423: start grinder (lines=180)
+09-27 05:04:13  round 423: grinder exited (code 0), retry in 30s
+09-27 05:04:43  round 424: start grinder (lines=180)
+09-27 05:05:35  round 424: grinder exited (code 0), retry in 30s
+09-27 05:06:05  round 425: start grinder (lines=180)
+09-27 05:06:57  round 425: grinder exited (code 0), retry in 30s
+09-27 05:07:27  round 426: start grinder (lines=180)
+09-27 05:08:19  round 426: grinder exited (code 0), retry in 30s
+09-27 05:08:49  round 427: start grinder (lines=180)
+09-27 05:09:42  round 427: grinder exited (code 0), retry in 30s
+09-27 05:10:12  round 428: start grinder (lines=180)
+09-27 05:11:04  round 428: grinder exited (code 0), retry in 30s
+09-27 05:11:34  round 429: start grinder (lines=180)
