@@ -36,8 +36,11 @@ def main():
     elif args.model == "qwen":
         from qwen_adapter import QwenAdapter
         adapter = QwenAdapter()
+    elif args.model == "jev":
+        from jev_adapter import JevAdapter
+        adapter = JevAdapter()
     else:
-        raise SystemExit("目前支持 laya-multi / laya-en / qwen")
+        raise SystemExit("目前支持 laya-multi / laya-en / qwen / jev")
 
     items = []
     for f in args.data:

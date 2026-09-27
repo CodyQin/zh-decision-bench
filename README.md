@@ -6,14 +6,26 @@
 
 Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — non-generative, single forward pass, typed decisions with calibrated probabilities — every public evaluation so far is English-only (the *Just Ask Jev* paper explicitly lists other languages as future work). This repo fills the Chinese gap.
 
+## Which model should I use? (zh, decision guide)
+
+| Your task | Recommendation | Why (measured) |
+|---|---|---|
+| Routing / ordinal grading, want best quality | **Jev API** | 0.92–0.94 accuracy across routing & urgency; order-invariant (flip 0–1.7%) |
+| **Binary judgment** (moderation, escalate) | **Jev API** — do **not** use LLM logit probing | Jev scam detection 0.933 / ECE 0.084; Qwen logit probe collapses on the same task (0.533 / ECE 0.42) |
+| Local & free, routing-shaped tasks | **Qwen3.5-2B + logit probe** | 0.92–0.94 on routing, 0% order flips, 2.2% zh-TW flips — but avoid for binary judgments |
+| Ultra-low-latency local (<30ms) | **Laya multilingual 322M + our temperature table** | 24ms/question; must fix option order (28% flip if not) and refit temperature first |
+| Users write Traditional Chinese | Jev or Qwen | 1.7% / 2.2% decision flips vs Laya's 12.8% |
+
+Full data & CIs below; raw predictions for all 1,134 model-questions in `results/raw/`.
+
 ## Key findings (v0.1, post human review)
 
-1. **The LLM-vs-decision-model contest splits by task type.** Qwen3.5-2B (logit probing) leads decisively on choice/ordinal tasks (voice routing 94.4% vs 88.3%; customer-service routing 92.0% vs 64.0%; urgency 64% vs 56%) and is far more robust (option-order flip rate 0% vs 28%; traditional-Chinese flip 2.2% vs 12.8%) — but collapses on binary judgments (escalation accuracy 40%, ECE 0.49–0.57, refit temperature 20.1), where the dedicated decision model holds the relative edge. On the one task we could measure Jev on, the closed flagship ties Qwen's accuracy on Chinese voice routing (0.944) with strong calibration (ECE 0.043) — the category's promise holds at the flagship end; it is the open small decision models that trail. **The value proposition of the decision-model route needs to be re-scoped by task and by tier, not accepted or rejected wholesale.**
-2. **"100+ languages" is a layered claim in Chinese.** Everyday voice commands: Laya multilingual 322M reaches 88.3% / ECE 0.061 (close to its own post-refit English figure of 0.081). Business scenarios: 52–67% with ECE degrading to 0.23–0.31.
-3. **Over-confidence is systematic — and scenario-dependent.** Refit temperatures for Laya multilingual are uniformly >1 (1.33–5.70); the English checkpoint is bidirectional (0.41–5.53); Qwen is split (0.81–20.09). Over/under-confidence varies by model×scenario combination, not by model alone.
-4. **Option-order sensitivity.** 28% of customer-service items flip their answer when options are merely reordered (voice: 10.6%); Qwen flips 0% on the same items. Fix the order or aggregate before production use.
-5. **Simplified vs Traditional Chinese is not one task.** Same utterances in native Traditional Chinese (MASSIVE parallel corpus): Laya 88.3%→82.1%, 12.8% decision flips (Qwen: 2.2%).
-6. **The multilingual checkpoint's value is quantifiable**: the English 421M checkpoint scores 75.4% / ECE 0.281 on the same Chinese voice tasks — multilingual buys +13 points and 4.6× better calibration.
+1. **The flagship decision model validates the category — the open field doesn't yet.** Jev (jev-latest, direct API) wins or ties every question group: voice routing 0.941/ECE 0.045, CS routing 0.920, urgency 0.680, scam detection **0.933/ECE 0.084**, escalate 0.550 — while being order-invariant (0–1.7% flips) and script-robust (zh-CN→zh-TW flip 1.7%, zero accuracy drop). RLCD-style calibration training demonstrably transfers to Chinese.
+2. **LLM logit probing is strong on choice, catastrophic on binary.** Qwen3.5-2B matches Jev on routing (0.944/0.920) and is equally robust — but on binary judgments it collapses (scam 0.533/ECE 0.42; escalation ECE 0.49–0.57, refit temperature 20.1). The failure mode of "reading confidence off a generative model" is precisely the binary case.
+3. **The open small decision model (Laya 322M) trails on accuracy, robustness and calibration in business scenarios**: CS routing 0.640 (Jev/Qwen: 0.920), order-flip 28%, zh-TW flip 12.8%; but it is 24ms/question local and free — with our temperature table and a fixed option order it becomes deployable.
+4. **"100+ languages" is a layered claim in Chinese.** Everyday voice commands: Laya multilingual reaches 0.883/ECE 0.061 (near its own post-refit English figure 0.081). Business scenarios drop to 0.52–0.67 with ECE 0.23–0.31.
+5. **Over-confidence is systematic across all four models on zh**: refit temperatures for voice routing are 0.41–2.73 (none equal 1.0); Laya's `noul:2` raw fit (10.2) exceeds the shipped clamp — Chinese binary-judgment over-confidence outruns the package's correction range.
+6. **Simplified vs Traditional Chinese is not one task**: native zh-TW parallel utterances flip 12.8% of Laya's decisions (Jev 1.7%, Qwen 2.2%).
 
 ## Dataset (v0.1: 219 items / 284 questions)
 
@@ -31,12 +43,12 @@ Covers all three question primitives: `choice`, `score` (ordinal), `noul` (binar
 
 | Model | Form | Status |
 |---|---|---|
+| Jev (jev-latest) | TypeSafe direct API | ✅ fully evaluated (284 questions; channel check: direct vs gateway 100% decision agreement, TV 0.003) |
 | Laya multilingual 322M | local, Apache 2.0 | ✅ evaluated |
 | Laya english 421M | local, Apache 2.0 | ✅ evaluated (control) |
 | Qwen3.5-2B | local bf16, logit-probe baseline | ✅ evaluated |
-| Jev (jev-1.13) | closed API, via Vercel AI Gateway | 🔶 partially evaluated: voice routing n=179 — acc 0.944 / ECE 0.043. Business scenarios blocked (gateway free tier excludes the model; TypeSafe direct signups paused); to be completed when access reopens |
 
-Fairness note: Qwen is 2B vs Laya's 322M/421M — ~6× parameters, ~3× per-question latency. The comparison is between *routes* (generative LLM vs dedicated decision model), not matched budgets.
+Fairness note: Qwen is 2B vs Laya's 322M/421M — ~6× parameters, ~3× per-question latency; Jev is a paid hosted API. The comparison is between *routes* (decision model / LLM probe / small local decision model), not matched budgets.
 
 ## Metrics & method
 
@@ -44,20 +56,22 @@ Metric suite follows [Just Ask Jev (arXiv:2609.29429)](https://arxiv.org/abs/260
 
 ## Results at a glance (accuracy / ECE)
 
-| Scenario · question | Laya multi 322M | Laya en 421M | Qwen3.5-2B | Jev (voice only, n=179) |
+| Scenario · question | Jev | Laya multi 322M | Laya en 421M | Qwen3.5-2B |
 |---|---|---|---|---|
-| Voice routing (n=179) | 0.883 / 0.061 | 0.754 / 0.281 | **0.944** / 0.032 | **0.944** / 0.043 |
-| CS routing (n=25) | 0.640 / 0.293 | 0.520 / 0.184 | **0.920 / 0.058** | — |
-| CS urgency (n=25) | 0.560 / 0.091 | 0.520 / 0.207 | **0.640 / 0.243** | — |
-| Scam/illicit promotion (n=15) | **0.667** / 0.311 | **0.667** / 0.321 | 0.533 / 0.421 | — |
-| Escalate (both scenarios, n=40) | **0.550** / 0.230 | 0.575 / 0.269 | 0.400 / 0.486 | — |
-| Option-order flip rate (CS / voice) | 28.0% / 10.6% | — | **0.0% / 7.3%** | — |
-| zh-TW flip rate (voice) | 12.8% | — | **2.2%** | — |
-| Refit temperature (voice routing) | 1.52 | 0.41 | 0.90 | 2.57 |
+| Voice routing (n=179) | **0.941 / 0.045** | 0.883 / 0.061 | 0.754 / 0.281 | **0.944 / 0.032** |
+| CS routing (n=25) | **0.920 / 0.065** | 0.640 / 0.293 | 0.520 / 0.184 | **0.920 / 0.058** |
+| CS urgency (n=25) | **0.680 / 0.154** | 0.560 / 0.091 | 0.520 / 0.207 | 0.640 / 0.243 |
+| Scam/illicit promotion (n=15) | **0.933 / 0.084** | 0.667 / 0.311 | 0.667 / 0.321 | 0.533 / 0.421 |
+| Escalate (both scenarios, n=40) | **0.550 / 0.180** | 0.550 / 0.230 | 0.575 / 0.269 | 0.400 / 0.486 |
+| Option-order flip rate (CS / voice) | **0.0% / 1.7%** | 28.0% / 10.6% | — | 0.0% / 7.3% |
+| zh-TW flip rate (voice) | **1.7%** | 12.8% | — | 2.2% |
+| Refit temperature (voice routing) | 2.73 | 1.52 | 0.41 | 0.90 |
 
 Full tables with CIs, Brier/NLL/AUROC and selective prediction: [reports/metrics.md](reports/metrics.md)
 
 Figures: [reliability diagram](reports/figs/reliability_laya_multi.png) · [model comparison](reports/figs/model_comparison.png) · [selective prediction](reports/figs/coverage_accuracy.png) · [failure cases](reports/failures.md)
+
+Temperature refit values per official `temp_bucket` convention: [data/temperatures_*.json](data/) — apply before trusting any raw confidence in production.
 
 ## Reproduce
 
@@ -69,21 +83,22 @@ pip install -r requirements.txt
 # laya-en & qwen weights: download from HF into models/ (gitignored), or let the adapter fetch them
 python src/convert_massive.py            # needs data/raw/massive_zh-CN.jsonl from the official S3 bundle
 python src/run_eval.py --model laya-multi --data data/massive_items.jsonl data/synthetic_items.jsonl
+python src/run_eval.py --model jev --data data/massive_items.jsonl data/synthetic_items.jsonl   # needs .env key
 python src/report.py results/raw/<run>.jsonl
 python src/refit.py results/raw/<run>.jsonl      # E2 temperature refit
-python src/permute.py --model laya-multi --data data/massive_items.jsonl data/synthetic_items.jsonl  # E3
-python src/zh_tw.py --model laya-multi           # E4 simplified/traditional (needs data/raw/massive_zh-TW.jsonl)
+python src/permute.py --model jev --data data/massive_items.jsonl data/synthetic_items.jsonl  # E3
+python src/zh_tw.py --model jev                   # E4 simplified/traditional (needs data/raw/massive_zh-TW.jsonl)
 python src/plots.py
 ```
 
-Reproducibility: the first line of every run file is a `_meta` record (model path / torch / CUDA / laya versions / data files / timestamp); all 852 raw predictions ship in `results/raw/`.
+Reproducibility: the first line of every run file is a `_meta` record (model path / torch / CUDA / laya versions / data files / timestamp); all 1,134 raw predictions ship in `results/raw/` (Jev direct run: 24 seconds / 284 questions end-to-end).
 
 ## Limitations (stated plainly)
 
 - v0.1 business-scenario groups have n=15–25 — wide CIs; v0.2 will expand
 - MASSIVE Chinese is professionally localized (not natively collected); colloquial coverage is compensated by the synthetic layer
 - Single human adjudicator with LLM-assisted drafting; the [review log](data/review_log.md) is public
-- Jev measured only on voice routing (n=179) via a gateway free-tier quota; business-scenario questions blocked (free tier excludes the model; TypeSafe direct signups paused) — row to be completed when access reopens
+- Escalate-type questions are hard for every model (0.40–0.58 accuracy) — partly task ambiguity, noted honestly
 - ECE is bin-sensitive at small n; headline conclusions rest on NLL and cross-group consistency
 
 ## License

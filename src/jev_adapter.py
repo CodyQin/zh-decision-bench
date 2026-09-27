@@ -11,7 +11,7 @@ from pathlib import Path
 
 import requests
 
-BASE_URL = os.environ.get("TYPESAFE_BASE_URL", "https://api.typesafe.ai")
+BASE_URL = os.environ.get("TYPESAFE_BASE_URL", "https://api.typesafe.ai/v1/systemone")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/systemone"
 OPENROUTER_MODEL = "typesafe/jev-1.13"
 VERCEL_URL = "https://ai-gateway.vercel.sh/v1/evaluate"
@@ -58,7 +58,9 @@ class JevAdapter:
         self.probe = probe  # True 时打印首条原始返回，用于核对格式
 
     def _post(self, payload, retries=30):
-        if self.via == "openrouter":
+        if self.via == "typesafe-direct":
+            payload = {"model": "jev-latest", **payload}
+        elif self.via == "openrouter":
             payload = {"model": OPENROUTER_MODEL, **payload}
         elif self.via == "vercel":
             # Vercel /v1/evaluate 与 systemone 同构，差异：是否题叫 boolean（非 noul）

@@ -43,11 +43,11 @@ def main():
         converted.append({**it, "state": tw_utt[m.group(1)]})
     print(f"对上 {len(converted)} 条繁体平行句（未对上 {missed} 条）")
 
-    # 找同一模型的简体原始 run 作为对照
-    run_files = sorted(Path("results/raw").glob(f"{args.model}_*.jsonl"))
+    # 找同一模型的简体原始 run 作为对照（按修改时间取最新）
+    run_files = sorted(Path("results/raw").glob(f"{args.model}*.jsonl"))
     if not run_files:
         raise SystemExit("找不到原始简体 run，先跑 run_eval.py")
-    base_run = run_files[-1]
+    base_run = max(run_files, key=lambda p: p.stat().st_mtime)
     base = {}
     for line in open(base_run, encoding="utf-8"):
         d = json.loads(line)
@@ -61,6 +61,9 @@ def main():
     elif args.model == "qwen":
         from qwen_adapter import QwenAdapter
         adapter = QwenAdapter()
+    elif args.model == "jev":
+        from jev_adapter import JevAdapter
+        adapter = JevAdapter()
     else:
         from laya_adapter import LayaAdapter
         adapter = LayaAdapter(subfolder=None)
