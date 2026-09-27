@@ -39,8 +39,11 @@ def main():
     elif args.model == "jev":
         from jev_adapter import JevAdapter
         adapter = JevAdapter()
+    elif args.model == "neohorse":
+        from neohorse_adapter import NeoHorseAdapter
+        adapter = NeoHorseAdapter()
     else:
-        raise SystemExit("目前支持 laya-multi / laya-en / qwen / jev")
+        raise SystemExit("目前支持 laya-multi / laya-en / qwen / jev / neohorse")
 
     items = []
     for f in args.data:

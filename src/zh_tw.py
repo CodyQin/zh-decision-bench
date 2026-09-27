@@ -64,6 +64,9 @@ def main():
     elif args.model == "jev":
         from jev_adapter import JevAdapter
         adapter = JevAdapter()
+    elif args.model == "neohorse":
+        from neohorse_adapter import NeoHorseAdapter
+        adapter = NeoHorseAdapter()
     else:
         from laya_adapter import LayaAdapter
         adapter = LayaAdapter(subfolder=None)

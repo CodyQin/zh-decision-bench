@@ -26,9 +26,9 @@ MUTED = "#898781"
 GRID = "#e1e0d9"
 AXIS = "#c3c2b7"
 MODEL_COLOR = {"laya-multi": "#2a78d6", "laya-en": "#eb6834",
-               "qwen": "#1baf7a", "jev": "#eda100"}
+               "qwen": "#1baf7a", "jev": "#eda100", "neohorse": "#4a3aa7"}
 MODEL_LABEL = {"laya-multi": "Laya 多语言 322M", "laya-en": "Laya 英文 421M",
-               "qwen": "Qwen3.5-2B", "jev": "Jev API"}
+               "qwen": "Qwen3.5-2B", "jev": "Jev API", "neohorse": "NeoHorse-Jev-4B"}
 
 plt.rcParams.update({
     "font.sans-serif": ["Microsoft YaHei", "SimHei", "sans-serif"],

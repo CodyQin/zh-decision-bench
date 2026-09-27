@@ -61,7 +61,11 @@ def main():
     elif args.model == "jev":
         from jev_adapter import JevAdapter
         adapter = JevAdapter(probe=True)
-        model_desc = "TypeSafe Jev API (jev-1.13.0)"
+        model_desc = "TypeSafe Jev API (jev-latest)"
+    elif args.model == "neohorse":
+        from neohorse_adapter import NeoHorseAdapter
+        adapter = NeoHorseAdapter()
+        model_desc = "TokenRhythm/NeoHorse-Jev-4B local"
     else:
         raise SystemExit(f"未知模型 {args.model}")
 
