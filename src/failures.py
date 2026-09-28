@@ -13,7 +13,9 @@ import numpy as np
 
 def main():
     run = sys.argv[1] if len(sys.argv) > 1 else "laya-multi"
-    runs = sorted(Path("results/raw").glob(f"{run}_*.jsonl"))
+    runs = sorted(Path("results/raw").glob(f"{run}*.jsonl"))
+    if not runs and Path(f"results/raw/{run}.jsonl").exists():
+        runs = [Path(f"results/raw/{run}.jsonl")]
     if not runs:
         raise SystemExit("找不到 run")
     recs = [json.loads(l) for l in open(runs[-1], encoding="utf-8") if l.strip()]

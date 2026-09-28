@@ -1,5 +1,2 @@
 domain,question,n_fit,n_test,T,ece_before,ece_after,nll_before,nll_after,brier_before,brier_after
-ecommerce_cs,escalate,11,14,20.086,0.4364,0.2670,1.3631,0.6806,0.8107,0.4875
-ecommerce_cs,route,11,14,0.928,0.0626,0.0661,0.3666,0.3822,0.1453,0.1444
-ecommerce_cs,urgency,11,14,0.811,0.3198,0.3586,1.0305,1.1187,0.5670,0.5736
-voice_assistant_routing,route,81,98,0.900,0.0369,0.0422,0.1713,0.1664,0.0860,0.0849
+voice_assistant_routing,route,153,170,1.030,0.0297,0.0410,0.1610,0.1629,0.0819,0.0822

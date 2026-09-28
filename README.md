@@ -1,4 +1,4 @@
-# zh-decision-bench
+﻿# zh-decision-bench
 
 **English** | [中文](README.zh-CN.md)
 
@@ -14,27 +14,27 @@ Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — no
 |---|---|---|
 | Routing / ordinal grading, want best quality | **Jev API** | 0.92–0.94 accuracy across routing & urgency; order-invariant (flip 0–1.7%) |
 | **Binary judgment** (moderation, escalate) | **Jev API** — do **not** use LLM logit probing | Jev scam detection 0.933 / ECE 0.084; Qwen logit probe collapses on the same task (0.533 / ECE 0.42) |
-| Local open decision model, Chinese-first | **NeoHorse-Jev-4B** (Apache 2.0) | Best routing of all five models (voice 0.950 / CS 0.960 — above Jev); order & script robust; weak on urgency (0.52), binary behind Jev |
+| Local open decision model, Chinese-first | **NeoHorse-Jev-4B** (Apache 2.0) | Statistical tie with Jev at the top of voice routing (0.950 vs 0.960, CIs overlap), best CS routing (0.960); order & script robust; weak on urgency (0.52), binary behind Jev |
 | Local & free, routing-shaped tasks | **Qwen3.5-2B + logit probe** | 0.92–0.94 on routing, 0% order flips, 2.2% zh-TW flips — but avoid for binary judgments |
 | Ultra-low-latency local (<30ms) | **Laya multilingual 322M + our temperature table** | 24ms/question; must fix option order (28% flip if not) and refit temperature first |
 | Users write Traditional Chinese | Jev or Qwen | 1.7% / 2.2% decision flips vs Laya's 12.8% |
 
 Full data & CIs below; raw predictions for all 1,134 model-questions in `results/raw/`.
 
-## Key findings (v0.1, post human review)
+## Key findings (v0.2, expanded and human-adjudicated)
 
-1. **The flagship decision model validates the category — the open field doesn't yet.** Jev (jev-latest, direct API) wins or ties every question group: voice routing 0.941/ECE 0.045, CS routing 0.920, urgency 0.680, scam detection **0.933/ECE 0.084**, escalate 0.550 — while being order-invariant (0–1.7% flips) and script-robust (zh-CN→zh-TW flip 1.7%, zero accuracy drop). RLCD-style calibration training demonstrably transfers to Chinese.
+1. **The flagship decision model validates the category — and the open field is closer than expected.** Jev (jev-latest, direct API) leads or ties every question group: voice routing 0.960/ECE 0.035 (n=323), CS routing 0.920, urgency 0.680, scam detection **0.933/ECE 0.084**, escalate 0.550 — while being order-invariant (0–1.9% flips) and script-robust (zh-TW flip 1.7%, zero accuracy drop). NeoHorse-Jev-4B is a statistical tie with Jev at the top of voice routing (0.950 vs 0.960, overlapping bootstrap CIs) — the zh-trained open 4B model genuinely competes on its home turf.
 2. **LLM logit probing is strong on choice, catastrophic on binary.** Qwen3.5-2B matches Jev on routing (0.944/0.920) and is equally robust — but on binary judgments it collapses (scam 0.533/ECE 0.42; escalation ECE 0.49–0.57, refit temperature 20.1). The failure mode of "reading confidence off a generative model" is precisely the binary case.
 3. **The open field is stratified.** NeoHorse-Jev-4B (zh-trained, Chinese company, first zh measurement here — its own card reports none) matches or beats Jev on routing (voice 0.950 vs 0.941, CS 0.960 vs 0.920) with good robustness (order flip 3.9–4.0%, zh-TW flip 3.4%), but fails urgency grading (0.520) and trails Jev on binary judgment (scam 0.733 vs 0.933). Laya 322M trails further on accuracy and robustness (order flip 28%) but wins on latency (24ms local, free).
 4. **"100+ languages" is a layered claim in Chinese.** Everyday voice commands: Laya multilingual reaches 0.883/ECE 0.061 (near its own post-refit English figure 0.081). Business scenarios drop to 0.52–0.67 with ECE 0.23–0.31.
-5. **Over-confidence is systematic across all four models on zh**: refit temperatures for voice routing are 0.41–2.73 (none equal 1.0); Laya's `noul:2` raw fit (10.2) exceeds the shipped clamp — Chinese binary-judgment over-confidence outruns the package's correction range.
+5. **Calibration needs are model×scenario specific — and small-n refits can mislead.** At n=323 voice routing, Qwen (T≈1.03) and NeoHorse (1.14) are near-calibrated out of the box, Laya-english is under-confident (0.44), Laya-multilingual mildly over (1.45), and Jev needs no refit at all (its shipped calibration already holds in Chinese — our v0.1 "everyone over-confident" reading was partly a small-sample artifact; we are revising it as data grows). Business scenarios are different: Laya's `noul:2` raw fit (10.2) exceeds its shipped clamp — zh binary-judgment over-confidence outruns the package's correction range.
 6. **Simplified vs Traditional Chinese is not one task**: native zh-TW parallel utterances flip 12.8% of Laya's decisions (Jev 1.7%, Qwen 2.2%).
 
 ## Dataset (v0.1: 219 items / 284 questions)
 
 | Part | Items | Source & license |
 |---|---|---|
-| Voice-command routing (6-way) | 179 | MASSIVE zh-CN dev split (Amazon, **CC BY 4.0**); only rows where every human judgment confirms the intent label; fixed sampling seed |
+| Voice-command routing (6-way) | 323 (v0.2; 60/domain where the quality-filtered dev pool allows) | MASSIVE zh-CN dev split (Amazon, **CC BY 4.0**); only rows where every human judgment confirms the intent label; fixed sampling seed |
 | E-commerce customer service (route/urgency/escalate) | 25 | Synthetic (LLM-drafted, human-adjudicated) |
 | Content moderation (scam-or-illicit-promotion / escalate) | 15 | Same; includes keyword-trap items (e.g. a scam-awareness post that is *about* scams but is not one) |
 
@@ -64,14 +64,16 @@ Metric suite follows [Just Ask Jev (arXiv:2609.29429)](https://arxiv.org/abs/260
 
 | Scenario · question | Jev API | NeoHorse 4B | Laya multi 322M | Laya en 421M | Qwen3.5-2B |
 |---|---|---|---|---|---|
-| Voice routing (n=179) | 0.941 / 0.045 | **0.950 / 0.039** | 0.883 / 0.061 | 0.754 / 0.281 | 0.944 / 0.032 |
+| Voice routing (n=323) | **0.960 / 0.035** | 0.950 / 0.031 | 0.870 / 0.056 | 0.749 / 0.276 | 0.938 / 0.020 |
 | CS routing (n=25) | 0.920 / 0.065 | **0.960 / 0.068** | 0.640 / 0.293 | 0.520 / 0.184 | 0.920 / 0.058 |
 | CS urgency (n=25) | **0.680 / 0.154** | 0.520 / 0.172 | 0.560 / 0.091 | 0.520 / 0.207 | 0.640 / 0.243 |
 | Scam/illicit promotion (n=15) | **0.933 / 0.084** | 0.733 / 0.221 | 0.667 / 0.311 | 0.667 / 0.321 | 0.533 / 0.421 |
 | Escalate (both scenarios, n=40) | **0.550 / 0.180** | 0.550 / 0.280 | 0.550 / 0.230 | 0.575 / 0.269 | 0.400 / 0.486 |
-| Option-order flip rate (CS / voice) | **0.0% / 1.7%** | 4.0% / 3.9% | 28.0% / 10.6% | — | 0.0% / 7.3% |
+| Option-order flip rate (CS / voice) | **0.0% / 1.9%** | 4.0% / 4.0% | 28.0% / 10.8% | — | 0.0% / 8.0% |
 | zh-TW flip rate (voice) | **1.7%** | 3.4% | 12.8% | — | 2.2% |
-| Refit temperature (voice routing) | 2.73 | 1.29 | 1.52 | 0.41 | 0.90 |
+| Refit temperature (voice routing, n=323) | 3.03* | 1.14 | 1.45 | 0.44 | 1.03 |
+
+\* Jev's shipped calibration is already good on zh voice routing — its refit does not improve ECE/NLL on the test half (the fitted T=3.03 reflects fit-half noise). The temperatures that matter in practice are the business-scenario ones above.
 
 Full tables with CIs, Brier/NLL/AUROC and selective prediction: [reports/metrics.md](reports/metrics.md)
 
