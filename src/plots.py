@@ -154,8 +154,8 @@ def main():
             ax.set_ylabel(ylab)
             ax.set_title(title, color=INK, fontsize=12)
             ax.set_ylim(0, 1.0)
-            if pi == 0:
-                ax.legend(frameon=False, fontsize=9)
+            if pi == 1:  # 图例放右图（ECE 柱矮，右上角留白充足）
+                ax.legend(frameon=False, fontsize=9, loc="upper right")
         fig.suptitle(T["cmp_title"], color=INK, fontsize=13)
         fig.tight_layout()
         fig.savefig(out / f"model_comparison_{lang}.png", dpi=150)
