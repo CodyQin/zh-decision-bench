@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this benchmark in your work, please cite it."
+title: "zh-decision-bench: a Chinese-language calibration benchmark for Jev-class decision models"
+authors:
+  - family-names: "Qin"
+    given-names: "Cody"
+    orcid: ""
+version: 0.2.0
+date-released: "2026-09-28"
+url: "https://github.com/CodyQin/zh-decision-bench"
+repository-code: "https://github.com/CodyQin/zh-decision-bench"
+dataset: "https://huggingface.co/datasets/CodyQin/zh-decision-bench"
+license: CC-BY-4.0
+keywords:
+  - benchmark
+  - calibration
+  - chinese
+  - decision-models
+  - system-one

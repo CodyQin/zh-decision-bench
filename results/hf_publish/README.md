@@ -28,7 +28,7 @@ configs:
         path: business_scenarios.jsonl
 ---
 
-# zh-decision-bench (v0.1)
+# zh-decision-bench (v0.2)
 
 **First Chinese-language calibration benchmark for Jev-class "System One" decision models** — accuracy *and* probability calibration on Chinese tasks.
 
@@ -54,6 +54,11 @@ Full methodology, five-model results (Jev, NeoHorse-Jev-4B, Laya x2, Qwen3.5-2B)
 from datasets import load_dataset
 ds = load_dataset("CodyQin/zh-decision-bench", "voice_routing")
 ```
+
+## Changelog
+
+- **v0.2 (2026-09-28)**: voice_routing 179 -> 323 (same task, official labels); business_scenarios 40 -> 55 (human-adjudicated); five-model matrix incl. NeoHorse-Jev-4B; revised the v0.1 over-confidence reading at larger n.
+- **v0.1 (2026-09-27)**: initial release.
 
 ## License
 

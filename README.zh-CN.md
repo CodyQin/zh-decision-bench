@@ -2,7 +2,7 @@
 
 [English](README.md) | **中文**
 
-[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) `load_dataset("CodyQin/zh-decision-bench")`
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) [![shipped in laya](https://img.shields.io/badge/eval%20set%20shipped%20in-laya%20v0.3.21-2a78d6)](https://github.com/NandhaKishorM/laya/pull/557) `load_dataset("CodyQin/zh-decision-bench")`
 
 **中文场景下的"System One"决策模型校准评测**：不只测**选得对不对**，还测**报出的概率可不可信**。
 
@@ -19,7 +19,7 @@
 | 极低延迟本地（<30ms） | **Laya 多语言 322M + 本仓库温度表** | 单问 24ms；上线前必须固定选项顺序（否则 28% 翻转）并重标温度 |
 | 用户会写繁体 | Jev 或 Qwen | 决策翻转 1.7% / 2.2%（Laya 为 12.8%） |
 
-完整数据与置信区间见下文；全部 1,134 条模型原始预测在 `results/raw/`。
+完整数据与置信区间见下文；全部 2,335 条模型原始预测在 `results/raw/`。
 
 ## 核心发现（v0.2，人工审定 + 扩样后）
 
@@ -30,7 +30,7 @@
 5. **校准需求是"模型×场景"的组合问题——小样本重标会骗人。** n=323 的语音路由上：Qwen（T≈1.03）与 NeoHorse（1.14）出厂即接近校准，Laya 英文版偏不自信（0.44）、多语言版轻度过度自信（1.45），**Jev 无需重标**（出厂校准在中文依然成立——v0.1 的"全员过度自信"部分是小样本伪影，数据变大后我们主动修正这一结论）。业务场景另当别论：Laya 的 `noul:2` 原始拟合（10.2）超出其钳制上限，中文二元判断的过度自信超出校正范围。
 6. **简繁不是同一个任务**：原生繁体平行句使 Laya 12.8% 的决策翻转（Jev 1.7%、Qwen 2.2%）。
 
-## 数据集（v0.1：219 条 / 284 问）
+## 数据集（v0.2：378 条 / 467 问）
 
 | 部分 | 条数 | 来源与许可 |
 |---|---|---|
@@ -48,7 +48,7 @@
 
 | 模型 | 形态 | 状态 |
 |---|---|---|
-| Jev (jev-latest) | TypeSafe 直连 API | ✅ 完整实测（284 问；通道核验：直连 vs 网关决策一致率 100%、TV 0.003） |
+| Jev (jev-latest) | TypeSafe 直连 API | ✅ 完整实测（467 问；通道核验：直连 vs 网关决策一致率 100%、TV 0.003） |
 | Laya multilingual 322M | 本地，Apache 2.0 | ✅ 已测 |
 | Laya english 421M | 本地，Apache 2.0 | ✅ 已测（对照组） |
 | Qwen3.5-2B | 本地 bf16，logit 探针基线 | ✅ 已测 |
@@ -99,7 +99,7 @@ python src/zh_tw.py --model jev                   # E4 简繁（需 data/raw/mas
 python src/plots.py
 ```
 
-可复现性：每个 run 的原始预测首行含 `_meta`（模型路径/torch/CUDA/laya 版本/数据文件/时间戳）；全部 1,134 条原始预测随仓库发布（Jev 直连全程 284 问仅 24 秒）。
+可复现性：每个 run 的原始预测首行含 `_meta`（模型路径/torch/CUDA/laya 版本/数据文件/时间戳）；全部 2,335 条原始预测随仓库发布（Jev 直连 v0.1 语音集 284 问仅 24 秒）。
 
 ## 局限（如实）
 

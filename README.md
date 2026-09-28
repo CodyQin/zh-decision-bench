@@ -2,7 +2,7 @@
 
 **English** | [中文](README.zh-CN.md)
 
-[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) `load_dataset("CodyQin/zh-decision-bench")`
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) [![shipped in laya](https://img.shields.io/badge/eval%20set%20shipped%20in-laya%20v0.3.21-2a78d6)](https://github.com/NandhaKishorM/laya/pull/557) `load_dataset("CodyQin/zh-decision-bench")`
 
 **A calibration benchmark for "System One" decision models on Chinese tasks** — measuring not just *whether the model picks the right answer*, but *whether the probabilities it reports can be trusted*.
 
@@ -19,7 +19,7 @@ Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — no
 | Ultra-low-latency local (<30ms) | **Laya multilingual 322M + our temperature table** | 24ms/question; must fix option order (28% flip if not) and refit temperature first |
 | Users write Traditional Chinese | Jev or Qwen | 1.7% / 2.2% decision flips vs Laya's 12.8% |
 
-Full data & CIs below; raw predictions for all 1,134 model-questions in `results/raw/`.
+Full data & CIs below; raw predictions for all 2,335 model-questions in `results/raw/`.
 
 ## Key findings (v0.2, expanded and human-adjudicated)
 
@@ -30,7 +30,7 @@ Full data & CIs below; raw predictions for all 1,134 model-questions in `results
 5. **Calibration needs are model×scenario specific — and small-n refits can mislead.** At n=323 voice routing, Qwen (T≈1.03) and NeoHorse (1.14) are near-calibrated out of the box, Laya-english is under-confident (0.44), Laya-multilingual mildly over (1.45), and Jev needs no refit at all (its shipped calibration already holds in Chinese — our v0.1 "everyone over-confident" reading was partly a small-sample artifact; we are revising it as data grows). Business scenarios are different: Laya's `noul:2` raw fit (10.2) exceeds its shipped clamp — zh binary-judgment over-confidence outruns the package's correction range.
 6. **Simplified vs Traditional Chinese is not one task**: native zh-TW parallel utterances flip 12.8% of Laya's decisions (Jev 1.7%, Qwen 2.2%).
 
-## Dataset (v0.1: 219 items / 284 questions)
+## Dataset (v0.2: 378 items / 467 questions)
 
 | Part | Items | Source & license |
 |---|---|---|
@@ -48,7 +48,7 @@ Covers all three question primitives: `choice`, `score` (ordinal), `noul` (binar
 
 | Model | Form | Status |
 |---|---|---|
-| Jev (jev-latest) | TypeSafe direct API | ✅ fully evaluated (284 questions; channel check: direct vs gateway 100% decision agreement, TV 0.003) |
+| Jev (jev-latest) | TypeSafe direct API | ✅ fully evaluated (467 questions; channel check: direct vs gateway 100% decision agreement, TV 0.003) |
 | Laya multilingual 322M | local, Apache 2.0 | ✅ evaluated |
 | Laya english 421M | local, Apache 2.0 | ✅ evaluated (control) |
 | Qwen3.5-2B | local bf16, logit-probe baseline | ✅ evaluated |
@@ -99,7 +99,7 @@ python src/zh_tw.py --model jev                   # E4 simplified/traditional (n
 python src/plots.py
 ```
 
-Reproducibility: the first line of every run file is a `_meta` record (model path / torch / CUDA / laya versions / data files / timestamp); all 1,134 raw predictions ship in `results/raw/` (Jev direct run: 24 seconds / 284 questions end-to-end).
+Reproducibility: the first line of every run file is a `_meta` record (model path / torch / CUDA / laya versions / data files / timestamp); all 2,335 raw predictions ship in `results/raw/`.
 
 ## Limitations (stated plainly)
 
