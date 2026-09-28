@@ -77,7 +77,7 @@
 
 详细表（含置信区间、Brier/NLL/AUROC/选择性预测）：[reports/metrics.md](reports/metrics.md)
 
-图表：[可靠性图](reports/figs/reliability_laya_multi.png) · [模型对比](reports/figs/model_comparison.png) · [选择性预测](reports/figs/coverage_accuracy.png) · [失败案例集](reports/failures.md)
+图表：[可靠性图](reports/figs/reliability_laya_multi_zh.png) · [模型对比](reports/figs/model_comparison_zh.png) · [选择性预测](reports/figs/coverage_accuracy_zh.png) · [失败案例集](reports/failures.md)
 
 官方 `temp_bucket` 口径的温度重标值：[data/temperatures_*.json](data/)——生产环境使用任何原始置信度前先套用。
 

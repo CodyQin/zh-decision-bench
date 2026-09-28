@@ -77,7 +77,7 @@ Metric suite follows [Just Ask Jev (arXiv:2609.29429)](https://arxiv.org/abs/260
 
 Full tables with CIs, Brier/NLL/AUROC and selective prediction: [reports/metrics.md](reports/metrics.md)
 
-Figures: [reliability diagram](reports/figs/reliability_laya_multi.png) · [model comparison](reports/figs/model_comparison.png) · [selective prediction](reports/figs/coverage_accuracy.png) · [failure cases](reports/failures.md)
+Figures: [reliability diagram](reports/figs/reliability_laya_multi_en.png) · [model comparison](reports/figs/model_comparison_en.png) · [selective prediction](reports/figs/coverage_accuracy_en.png) · [failure cases](reports/failures.md)
 
 Temperature refit values per official `temp_bucket` convention: [data/temperatures_*.json](data/) — apply before trusting any raw confidence in production.
 
