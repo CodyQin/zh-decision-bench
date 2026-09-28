@@ -2,6 +2,8 @@
 
 **English** | [中文](README.zh-CN.md)
 
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) `load_dataset("CodyQin/zh-decision-bench")`
+
 **A calibration benchmark for "System One" decision models on Chinese tasks** — measuring not just *whether the model picks the right answer*, but *whether the probabilities it reports can be trusted*.
 
 Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — non-generative, single forward pass, typed decisions with calibrated probabilities — every public evaluation so far is English-only (the *Just Ask Jev* paper explicitly lists other languages as future work). This repo fills the Chinese gap.

@@ -2,6 +2,8 @@
 
 [English](README.md) | **中文**
 
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?logoColor=black)](https://huggingface.co/datasets/CodyQin/zh-decision-bench) `load_dataset("CodyQin/zh-decision-bench")`
+
 **中文场景下的"System One"决策模型校准评测**：不只测**选得对不对**，还测**报出的概率可不可信**。
 
 围绕 Jev（TypeSafe AI，2026-09 发布）引出的"决策模型"类别——非生成式、单次前向、输出带校准概率的类型化决策——此前所有公开评测均为英文（Just Ask Jev 论文明确把"其他语言"列为 future work）。本仓库填中文这个空位。
