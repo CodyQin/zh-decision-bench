@@ -40,7 +40,7 @@
 
 **标注流程（如实披露）**：MASSIVE 部分沿用原始标注并按本仓库选项定义重映射；合成部分由 LLM 起草、项目所有者逐条人工审定——[审核日志公开](data/review_log.md)（7 条意见全部落实，含一次问题定义修订）。全部 gold 与模型原始预测一并发布。
 
-> 本评测集同时收录于 [Laya](https://github.com/NandhaKishorM/laya) 官方仓库 `research/evals/`，随其 **v0.3.21** 发布（[PR #557](https://github.com/NandhaKishorM/laya/pull/557)）。
+> 本评测集同时收录于 [Laya](https://github.com/NandhaKishorM/laya) 官方仓库 `research/evals/`，随其 **v0.3.21** 发布（[PR #557](https://github.com/NandhaKishorM/laya/pull/557)）；并收录于 [awesome-jev](https://github.com/yibie/awesome-jev) 生态名录（[PR #303](https://github.com/yibie/awesome-jev/pull/303)）。
 
 三种题型覆盖：`choice`（选项路由）、`score`（有序分级）、`noul`（是否判断）。
 

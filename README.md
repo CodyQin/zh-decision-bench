@@ -40,7 +40,7 @@ Full data & CIs below; raw predictions for all 2,335 model-questions in `results
 
 **Annotation disclosure:** MASSIVE items carry the original labels remapped to this repo's option definitions; synthetic items were LLM-drafted and adjudicated item-by-item by the repo owner — the [review log is public](data/review_log.md) (7 adjudications, including one question-definition revision). All gold labels and all raw model predictions ship with the repo.
 
-> The eval set also ships in [Laya](https://github.com/NandhaKishorM/laya)'s `research/evals/` as of **v0.3.21** ([PR #557](https://github.com/NandhaKishorM/laya/pull/557)).
+> The eval set also ships in [Laya](https://github.com/NandhaKishorM/laya)'s `research/evals/` as of **v0.3.21** ([PR #557](https://github.com/NandhaKishorM/laya/pull/557)) · listed in [awesome-jev](https://github.com/yibie/awesome-jev) ([PR #303](https://github.com/yibie/awesome-jev/pull/303)).
 
 Covers all three question primitives: `choice`, `score` (ordinal), `noul` (binary).
 
