@@ -66,6 +66,10 @@ def main():
         from neohorse_adapter import NeoHorseAdapter
         adapter = NeoHorseAdapter()
         model_desc = "TokenRhythm/NeoHorse-Jev-4B local"
+    elif args.model == "typic":
+        from typic_adapter import TypicAdapter
+        adapter = TypicAdapter()
+        model_desc = "minar-svn/typic-bert 396M local"
     else:
         raise SystemExit(f"未知模型 {args.model}")
 

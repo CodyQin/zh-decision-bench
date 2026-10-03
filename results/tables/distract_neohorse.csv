@@ -1,0 +1,5 @@
+model,level,items,flip_rate,acc_at_level,base_acc,tokens_est
+neohorse,0,323,0.0000,0.9505,0.9505,0
+neohorse,500,323,0.0557,0.9257,0.9505,500
+neohorse,2000,323,0.0495,0.9443,0.9505,2000
+neohorse,7000,0,nan,nan,0.9505,7000

@@ -1,0 +1,5 @@
+model,level,items,flip_rate,acc_at_level,base_acc,tokens_est
+laya-multi,0,323,0.0000,0.8700,0.8700,0
+laya-multi,500,323,0.2229,0.7399,0.8700,500
+laya-multi,2000,323,0.8050,0.1858,0.8700,2000
+laya-multi,7000,323,0.8050,0.1858,0.8700,7000
