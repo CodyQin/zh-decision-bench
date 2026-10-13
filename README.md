@@ -119,3 +119,14 @@ Reproducibility: the first line of every run file is a `_meta` record (model pat
 - [Just Ask Jev](https://arxiv.org/abs/2609.29429) (metric framework)
 - [MASSIVE](https://github.com/alexa/massive) (Amazon, CC BY 4.0)
 - [Laya](https://huggingface.co/convaiinnovations/laya) (Convai Innovations, Apache 2.0)
+
+## Community & Ecosystem
+
+This benchmark is indexed by:
+
+- [JevList](https://jevlist.ai) — Jev ecosystem project directory
+- [laya.tools](https://laya.tools) — Laya's official ecosystem page
+- [JEVLAB](https://jev-lab.com) — TypeSafe AI's lab page
+- [jevbooks](https://jevbooks.com) — Chinese-language Jev resource hub
+
+The eval set ships in [Laya](https://github.com/NandhaKishorM/laya)'s `research/evals/` (v0.3.21+, [PR #557](https://github.com/NandhaKishorM/laya/pull/557)) and is listed in [awesome-jev](https://github.com/yibie/awesome-jev) ([PR #303](https://github.com/yibie/awesome-jev/pull/303)).

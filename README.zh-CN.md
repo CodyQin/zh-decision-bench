@@ -119,3 +119,14 @@ python src/plots.py
 - [Just Ask Jev](https://arxiv.org/abs/2609.29429)（指标体系）
 - [MASSIVE](https://github.com/alexa/massive)（Amazon，CC BY 4.0）
 - [Laya](https://huggingface.co/convaiinnovations/laya)（Convai Innovations，Apache 2.0）
+
+## 社区与生态
+
+本基准已被以下站点收录：
+
+- [JevList](https://jevlist.ai) — Jev 生态项目名录
+- [laya.tools](https://laya.tools) — Laya 官方生态页
+- [JEVLAB](https://jev-lab.com) — TypeSafe AI 实验室页面
+- [jevbooks](https://jevbooks.com) — 中文 Jev 资源站
+
+评测集同时收录于 [Laya](https://github.com/NandhaKishorM/laya) 官方仓库 `research/evals/`（v0.3.21+，[PR #557](https://github.com/NandhaKishorM/laya/pull/557)）及 [awesome-jev](https://github.com/yibie/awesome-jev) 名录（[PR #303](https://github.com/yibie/awesome-jev/pull/303)）。
