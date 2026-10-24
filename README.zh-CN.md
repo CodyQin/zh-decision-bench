@@ -6,7 +6,7 @@
 
 **中文场景下的"System One"决策模型校准评测**：不只测**选得对不对**，还测**报出的概率可不可信**。
 
-围绕 Jev（TypeSafe AI，2026-09 发布）引出的"决策模型"类别——非生成式、单次前向、输出带校准概率的类型化决策——此前所有公开评测均为英文（Just Ask Jev 论文明确把"其他语言"列为 future work）。本仓库填中文这个空位。
+围绕 Jev（TypeSafe AI，2026-09 发布）引出的"决策模型"类别——非生成式、单次前向、输出带校准概率的类型化决策——已在 10 月被 [Microsoft（Decision-1）](https://commandline.microsoft.com/microsoft-decision-1-model-foundry)、OpenAI（Decisions API）、Perplexity、Cloudflare、Baseten 等巨头入场验证，TypeSafe 估值达 75 亿美元。然而所有公开评测仍为英文。本仓库填中文这个空位。
 
 ## 我该用哪个模型？（中文场景选型指南）
 
@@ -48,7 +48,7 @@
 
 | 模型 | 形态 | 状态 |
 |---|---|---|
-| Jev (jev-latest) | TypeSafe 直连 API | ✅ 完整实测（467 问；通道核验：直连 vs 网关决策一致率 100%、TV 0.003） |
+| Jev (jev-latest = 1.13) | TypeSafe 直连 API | ✅ 完整实测（467 问）+ **版本演进至 1.14**（见下） |
 | Laya multilingual 322M | 本地，Apache 2.0 | ✅ 已测 |
 | Laya english 421M | 本地，Apache 2.0 | ✅ 已测（对照组） |
 | Qwen3.5-2B | 本地 bf16，logit 探针基线 | ✅ 已测 |
@@ -119,6 +119,22 @@ python src/plots.py
 - [Just Ask Jev](https://arxiv.org/abs/2609.29429)（指标体系）
 - [MASSIVE](https://github.com/alexa/massive)（Amazon，CC BY 4.0）
 - [Laya](https://huggingface.co/convaiinnovations/laya)（Convai Innovations，Apache 2.0）
+
+## 版本演进：Jev 1.13 → 1.14（2026-10-14 发布）
+
+Jev 1.14 声称"多语言显著提升"。我们的基准显示这一提升在中文上**真实但不均匀**：
+
+| 任务 | 1.13 acc/ECE | 1.14 acc/ECE | Δ acc |
+|---|---|---|---|
+| 内容审核·转人工 | 0.619 / 0.236 | **0.714** / 0.174 | **+0.095** |
+| 内容审核·诈骗 | 0.952 / 0.073 | 0.952 / 0.093 | 0.000 |
+| 客服·转人工 | 0.588 / 0.213 | 0.559 / 0.277 | −0.029 |
+| 客服·路由 | 0.882 / 0.107 | 0.882 / 0.120 | 0.000 |
+| 客服·紧急度 | 0.676 / 0.135 | **0.706** / 0.169 | **+0.029** |
+| 语音路由（n=323） | **0.960** / 0.035 | 0.950 / 0.033 | −0.009 |
+| **综合（n=467）** | **0.891** | **0.889** | **−0.002** |
+
+最大亮点：内容审核转人工提升 9.5 个百分点。但旗舰任务语音路由反而微降。综合来看 1.14 的中文表现基本持平。运行文件：`results/raw/v03_jev114.jsonl`（jev-preview，2026-10-23）。
 
 ## 社区与生态
 

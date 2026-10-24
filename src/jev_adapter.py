@@ -31,8 +31,9 @@ def _read_env(name):
 
 
 class JevAdapter:
-    def __init__(self, probe=False):
+    def __init__(self, probe=False, model_name=None):
         self.name = "jev"
+        self.model_name = model_name or "jev-latest"
         self.key = _read_env("TYPESAFE_API_KEY")
         self.base = BASE_URL
         self.via = "typesafe-direct"
@@ -59,7 +60,7 @@ class JevAdapter:
 
     def _post(self, payload, retries=30):
         if self.via == "typesafe-direct":
-            payload = {"model": "jev-latest", **payload}
+            payload = {"model": self.model_name, **payload}
         elif self.via == "openrouter":
             payload = {"model": OPENROUTER_MODEL, **payload}
         elif self.via == "vercel":

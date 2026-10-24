@@ -6,7 +6,7 @@
 
 **A calibration benchmark for "System One" decision models on Chinese tasks** — measuring not just *whether the model picks the right answer*, but *whether the probabilities it reports can be trusted*.
 
-Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — non-generative, single forward pass, typed decisions with calibrated probabilities — every public evaluation so far is English-only (the *Just Ask Jev* paper explicitly lists other languages as future work). This repo fills the Chinese gap.
+Around the decision-model category Jev (TypeSafe AI, Sept 2026) opened up — non-generative, single forward pass, typed decisions with calibrated probabilities. By late October, the category was validated by entries from [Microsoft (Decision-1)](https://commandline.microsoft.com/microsoft-decision-1-model-foundry), OpenAI (Decisions API), Perplexity, Cloudflare, and Baseten, with TypeSafe valued at $7.5B. Yet every public evaluation remains English-only. This repo fills the Chinese gap.
 
 ## Which model should I use? (zh, decision guide)
 
@@ -48,7 +48,7 @@ Covers all three question primitives: `choice`, `score` (ordinal), `noul` (binar
 
 | Model | Form | Status |
 |---|---|---|
-| Jev (jev-latest) | TypeSafe direct API | ✅ fully evaluated (467 questions; channel check: direct vs gateway 100% decision agreement, TV 0.003) |
+| Jev (jev-latest = 1.13) | TypeSafe direct API | ✅ fully evaluated (467 questions) + **version evolution to 1.14** (see below) |
 | Laya multilingual 322M | local, Apache 2.0 | ✅ evaluated |
 | Laya english 421M | local, Apache 2.0 | ✅ evaluated (control) |
 | Qwen3.5-2B | local bf16, logit-probe baseline | ✅ evaluated |
@@ -119,6 +119,22 @@ Reproducibility: the first line of every run file is a `_meta` record (model pat
 - [Just Ask Jev](https://arxiv.org/abs/2609.29429) (metric framework)
 - [MASSIVE](https://github.com/alexa/massive) (Amazon, CC BY 4.0)
 - [Laya](https://huggingface.co/convaiinnovations/laya) (Convai Innovations, Apache 2.0)
+
+## Version evolution: Jev 1.13 → 1.14 (Oct 14, 2026)
+
+Jev 1.14 claims "notable multilingual improvements." Our benchmark shows these are **real but uneven** on Chinese:
+
+| Task | 1.13 acc/ECE | 1.14 acc/ECE | Δ acc |
+|---|---|---|---|
+| CM escalate | 0.619 / 0.236 | **0.714** / 0.174 | **+0.095** |
+| Scam detection | 0.952 / 0.073 | 0.952 / 0.093 | 0.000 |
+| CS escalate | 0.588 / 0.213 | 0.559 / 0.277 | −0.029 |
+| CS routing | 0.882 / 0.107 | 0.882 / 0.120 | 0.000 |
+| CS urgency | 0.676 / 0.135 | **0.706** / 0.169 | **+0.029** |
+| Voice routing (n=323) | **0.960** / 0.035 | 0.950 / 0.033 | −0.009 |
+| **Overall (n=467)** | **0.891** | **0.889** | **−0.002** |
+
+The biggest win: content-moderation escalation improved by 9.5 points. But voice routing — the flagship task — slightly regressed. Overall, 1.14's Chinese performance is essentially flat. Run file: `results/raw/v03_jev114.jsonl` (jev-preview, 2026-10-23).
 
 ## Community & Ecosystem
 
